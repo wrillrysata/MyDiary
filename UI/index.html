@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Diary</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+ <!-- SVG icons -->
+ <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" enable-background="new 0 0 100 100" xml:space="preserve" style="display: none;">
+    <defs>
+  
+  <symbol id="icon-plus" viewBox="0 0 32 32">
+    <title>plus</title>
+    <path d="M31 12h-11v-11c0-0.552-0.448-1-1-1h-6c-0.552 0-1 0.448-1 1v11h-11c-0.552 0-1 0.448-1 1v6c0 0.552 0.448 1 1 1h11v11c0 0.552 0.448 1 1 1h6c0.552 0 1-0.448 1-1v-11h11c0.552 0 1-0.448 1-1v-6c0-0.552-0.448-1-1-1z"></path>
+    </symbol>
+
+
+    </defs>
+  </svg>
+<body>
+    <div class="cover flex">
+            
+       
+        <div class="home-container center">
+        <h1>My Diary</h1>
+        <p>A safe space for your thoughts</p>
+        <button class="btn" id="sign-up">Sign up</button>
+        <button class="btn" id="sign-in">Sign in</button>
+        </div>
+    </div>
+    <!--- Sign up pop-up modal -->
+    <div id="signup-modal" class="modal">
+        
+        <form class="modal-content">
+          <div class="container">
+                <span class="close-signup">&times;</span>
+            <label><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" name="email" required>
+            <label><b>Username</b></label>
+            <input type="text" placeholder="Pick a username" name="username" required>
+       
+            <label><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+        
+              <button type="submit" class="signupbtn">Sign Up</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    <!--- Sign up pop-up modal ends -->
+
+     <!--- Sign in pop-up modal begins -->
+     <div id="signin-modal" class="modal">
+        
+            <form class="modal-content">
+              <div class="container">
+                    <span class="close-signin">&times;</span>
+                <label><b>Username</b></label>
+                <input type="text" placeholder="Pick a username" name="username" required>
+           
+                <label><b>Password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+            
+                  <button type="submit" class="signupbtn">Sign in</button>
+                </div>
+              </div>
+            </form>
+          </div>
+      <!--- Sign in pop-up modal ends-->
+    <script src="./js/script.js"></script>
+</body>
+</html>
