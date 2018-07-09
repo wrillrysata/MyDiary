@@ -2,12 +2,14 @@
 @import url("https://fonts.googleapis.com/css?family=Courgette");
 
 body{
-margin:0;
-padding:0;
-overflow: hidden;
 font-family: "Open Sans Condensed", sans-serif;
+background-color: #E6E6FA;
 }
-
+.dashboard-text { color: black; }
+a{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 15px;
+}
 h1{
 font-size: 60px;
 color:#ADD8E6;
@@ -48,6 +50,10 @@ p{
    font-size: 25px;
    color:#ADD8E6;
 }
+.note-text{
+    color: black !important;
+}
+
 .btn{
 display: inline-block;
 border-radius:5px;
@@ -79,17 +85,14 @@ input[type=text], input[type=password] {
 .signupbtn{
     position: relative;
     bottom: 5px;
-    width:50%;
+    left:20vw;
+    width:40%;
     background-color: #4eb5f1;
     height:40px;
     align-self: center;
     border-radius: 5px;
 }
-.container {
-    padding: 16px;
-}
- 
- 
+
 .modal {
     display: none; 
     position: fixed; 
@@ -102,6 +105,15 @@ input[type=text], input[type=password] {
     background-color: rgba(0,0,0,0.4); 
     padding-top: 60px;
 }
+.signup{
+    display:block;
+    z-index: 1; left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: auto; 
+    padding-top: 60px;
+}
  
  
 .modal-content {
@@ -111,7 +123,7 @@ input[type=text], input[type=password] {
     width: 80%;  
 }
 /* The Close Button */
-.close-signup, .close-signin {
+.close{
     color:black;
     float: right;
     font-size: 28px;
@@ -123,4 +135,171 @@ input[type=text], input[type=password] {
     text-decoration: none;
     cursor: pointer;
     }
- 
+
+    #save, #update{
+   display:inline-block;
+   position: relative;
+   top:95px;
+   right:200px;
+   text-align: center;
+   width:200px;
+   height:35px;
+   border-radius: 5px;
+   background-color:#4eb5f1;
+    }
+.note-area{
+    position: relative;
+    top:30vh;
+    left:10vw;
+    }
+textarea{
+    overflow: auto;
+    width: 600px;
+	height: 120px;
+	border: 3px solid #cccccc;
+	padding: 5px;
+}
+.top{
+    width:100%;
+    height:50px;
+    background-color: #4eb5f1;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+
+}
+.dashboard-text{
+    display: inline-block;
+    margin:10px 0 0 10px;
+}
+.avatar{
+    float:right;
+    width:50px;
+    height:50px;
+    border-radius:15px;
+    }
+    .greeting{
+        float: right;
+        color: black !important;
+        position: relative;
+        top:-10px;
+        right:120px;
+        font-family: "Open Sans Condensed", sans-serif;
+        font-size:16px;
+        margin-top:15px;;
+        
+    }
+
+    #drop-icon{
+        float:right;
+        position: relative;
+        right:55px;
+        top:5px;
+    }
+    select{
+        background-color: #4eb5f1;
+        float: right;
+        position: relative;
+        top:5px;
+        right:-20px;
+    }
+  
+    .note, .info-block{
+        margin-top:50px;
+        border:2px solid #eee;
+        box-shadow: 0 2px 2px #ccc;
+        width:200px;
+        padding: 20px;
+        background-color:white;
+    }
+    .info-block{
+    width:200px !important;
+    background-color: #888; 
+    height:20px;
+    width:100%;
+    }
+    .profile-text{
+        font-size:15px;
+        color:black;
+        text-align: center;
+        margin-top:25px;
+    }
+    .single{
+        margin-top:50px;
+        border:2px solid #eee;
+        box-shadow: 0 2px 2px #ccc;
+        width:500px;
+        background-color:white;
+
+    }
+    .container{
+max-width: 100%;
+margin: 50px;
+padding: 10px 20px;
+}
+
+    .grid{
+  box-sizing: border-box;
+  position: relative;
+  top: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+    }
+    .icon{
+        display: inline;
+        width: 15px;
+        height: 15px;
+        position: relative;
+        margin-right: 8px; 
+    }
+    .icon-cog, .icon-user, .icon-stats-dots{
+        position: relative;
+        bottom:15px;
+    }
+    ul{
+        list-style-type: none;
+    }
+   
+    /**
+    @media screen and (max-width: 800px) {
+        .top{
+            max-width:100%;
+        }
+        select{
+            top:7px;
+        }
+        .note{
+            flex-wrap: wrap;
+        }
+        .single{
+            width:800px;
+        }
+    }**/
+    @media screen and (max-width: 700px){
+       
+        #save{
+            width:400px;
+            position: relative;
+            right:30vw;
+        }
+        textarea{
+            width:900px;
+        }
+
+    }
+    @media screen and (min-width: 750px){
+        body{
+            margin:50px
+        }
+        textarea{
+            height:200px;
+        }
+        #save, #update{
+            position: relative;
+            top:150px;
+        }
+    }
+	
