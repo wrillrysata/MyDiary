@@ -26,7 +26,6 @@
   "engines": {
     "node": "7.10.1"
   },
-
   "homepage": "https://github.com/Ijebusoma/My-Diary#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
