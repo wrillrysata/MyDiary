@@ -4,3 +4,5 @@ node_js:
   - "7"
 script:
   - npm run coveralls 
+before_install: 
+  if [[ `npm -v` != 3* ]]; then npm i -g npm@3; fi
