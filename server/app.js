@@ -17,9 +17,4 @@ router(app);
 app.all('*', (req, res) => {
   res.status(404).send('This Route does not exist, please check again ');
 });
-
-app.use('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/index.html'));
-});
-
 export default app;
