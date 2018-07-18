@@ -1,8 +1,6 @@
 import entriesManager from './entriesManager';
 /**
    * @class Entries
-   * @param {any} req
-   * @param {any} res
  */
 class Entries {
 /**
@@ -12,8 +10,9 @@ class Entries {
  * @param {any} res
  * @returns {obj} //returns object
  */
-  getAllEntries(req, res) {
-    res.send(entriesManager.getAll());
+  static getAllEntries(req, res) {
+    const result = entriesManager.getAll();
+    res.send(result);
   }
 }
 export default Entries;
