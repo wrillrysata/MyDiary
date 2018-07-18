@@ -6,7 +6,7 @@
   "scripts": {
     "start:dev": "cross-env NODE_ENV=development nodemon --exec babel-node server/bin/www",
     "test": "cross-env NODE_ENV=test mocha server/test/*.js --exit  --require babel-register --reporter spec",
-    "start": "nodemon server/bin/www --exec babel-node",
+    "start": "babel-node server/bin/www",
     "build": "babel ./server/ -d dist/server",
     "heroku-postbuild": "npm run build",
     "coveralls" : "NODE_ENV=test mocha server/test/*.js --require babel-register -R mocha-lcov-reporter  | ./node_modules/coveralls/bin/coveralls.js"
