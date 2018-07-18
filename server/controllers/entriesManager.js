@@ -6,6 +6,16 @@ const entriesManager = {
   ],
   getAll: () => entriesManager.entries,
 
+
+  getOne: (id) => {
+    const allEntries = entriesManager.getAll();
+    for (let i = 0; i < allEntries.length; i + 1) {
+      if (allEntries[i].id === id) {
+        return allEntries[i];
+      }
+      return allEntries[i];
+    }
+  }
 };
 
 export default entriesManager;
