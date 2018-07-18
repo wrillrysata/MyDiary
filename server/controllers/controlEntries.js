@@ -12,7 +12,7 @@ class Entries {
  */
   static getAllEntries(req, res) {
     const result = entriesManager.getAll();
-    res.send(result);
+    res.status(200).send(result);
   }
 
   /**
@@ -23,9 +23,9 @@ class Entries {
  * @returns {obj} //returns object
  */
   static getOneEntry(req, res) {
-    const { id } = req;
+    const { id } = req.params;
     const result = entriesManager.getOne(id);
-    res.send(result);
+    res.status(200).send(result);
   }
 }
 export default Entries;
