@@ -14,5 +14,18 @@ class Entries {
     const result = entriesManager.getAll();
     res.send(result);
   }
+
+  /**
+ * @method
+ * @memberOf Entries
+ * @param {any} req
+ * @param {any} res
+ * @returns {obj} //returns object
+ */
+  static getOneEntry(req, res) {
+    const { id } = req;
+    const result = entriesManager.getOne(id);
+    res.send(result);
+  }
 }
 export default Entries;
