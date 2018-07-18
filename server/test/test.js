@@ -48,15 +48,16 @@ describe('Get entries', () => {
 describe('Modify entries', () => {
   it('Should add an entry', (done) => {
     chai.request(app)
-      .get('/api/v1/addentry')
+      .get('/api/v1/new/4/ipsum')
       .end((err, res) => {
         expect(res).to.have.status(200);
+        expect(res.body).to.be.an('object');
         done();
       });
   });
   it('Should edit entry', (done) => {
     chai.request(app)
-      .get('/api/v1/editentry/1')
+      .get('/api/v1/edit/1')
       .end((err, res) => {
         expect(res).to.have.status(200);
         expect(res.body).to.be.an('object');

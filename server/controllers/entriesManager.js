@@ -15,6 +15,11 @@ const entriesManager = {
       }
       return allEntries[i];
     }
+  },
+
+  addNew: (id, note) => {
+    entriesManager.entries.push({ id, note });
+    return entriesManager.entries;
   }
 };
 
