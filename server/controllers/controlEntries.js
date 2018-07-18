@@ -27,5 +27,19 @@ class Entries {
     const result = entriesManager.getOne(id);
     res.status(200).send(result);
   }
+
+  /**
+ * @method
+ * @memberOf Entries
+ * @param {any} req
+ * @param {any} res
+ * @returns {obj} //returns object
+ */
+  static addEntry(req, res) {
+    const { id } = req.params.id;
+    const { note } = req.params.note;
+    const result = entriesManager.addNew(id, note);
+    res.status(200).send(result);
+  }
 }
 export default Entries;
