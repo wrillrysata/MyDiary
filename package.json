@@ -31,6 +31,10 @@
   "dependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env":"1.7.0",
+    "babel-preset-react": "^6.24.1",
     "babel-register": "^6.26.0",
     "body-parser": "^1.18.3",
     "chai": "^4.1.2",
@@ -42,8 +46,6 @@
     "request": "^2.87.0"
   },
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-preset-env": "^1.7.0",
     "coveralls": "^3.0.2",
     "cross-env": "^5.2.0",
     "eslint": "~5.1.0",

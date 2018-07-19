@@ -1,9 +1,4 @@
 {
-  "presets": [
-    ["env", {
-      "targets": {
-        "node": "6.10"
-      }
-    }]
-  ]
+  "presets": ["react", "env"],
+  "plugins": ["transform-class-properties"]
 }
