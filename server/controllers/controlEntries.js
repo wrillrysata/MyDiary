@@ -36,9 +36,23 @@ class Entries {
  * @returns {obj} //returns object
  */
   static addEntry(req, res) {
-    const { id } = req.params.id;
-    const { note } = req.params.note;
+    const { id } = req.params;
+    const { note } = req.params;
     const result = entriesManager.addNew(id, note);
+    res.status(200).send(result);
+  }
+
+  /**
+ * @method
+ * @memberOf Entries
+ * @param {any} req
+ * @param {any} res
+ * @returns {obj} //returns object
+ */
+  static editEntry(req, res) {
+    const { id } = req.params;
+    const { note } = req.params;
+    const result = entriesManager.edit(id, note);
     res.status(200).send(result);
   }
 }

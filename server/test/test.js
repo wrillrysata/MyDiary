@@ -48,19 +48,19 @@ describe('Get entries', () => {
 describe('Modify entries', () => {
   it('Should add an entry', (done) => {
     chai.request(app)
-      .get('/api/v1/new/4/ipsum')
+      .post('/api/v1/new/4/ipsum')
       .end((err, res) => {
         expect(res).to.have.status(200);
-        expect(res.body).to.be.an('object');
+        expect(res.body).to.be.an('object').that.contains('ipsum');
         done();
       });
   });
-  it('Should edit entry', (done) => {
+  it('Should edit the entry', (done) => {
     chai.request(app)
-      .get('/api/v1/edit/1')
+      .put('/api/v1/edit/4/wakanda')
       .end((err, res) => {
         expect(res).to.have.status(200);
-        expect(res.body).to.be.an('object');
+        expect(res.body).to.be.an('object').that.contains('wakanda');
         done();
       });
   });
