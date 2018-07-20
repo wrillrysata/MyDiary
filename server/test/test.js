@@ -2,6 +2,9 @@ import chaiHttp from 'chai-http';
 import chai, { expect } from 'chai';
 import app from '../app';
 
+/* eslint-disable no-unused-vars */
+const should = chai.should();
+
 chai.use(chaiHttp);
 
 describe('API Endpoints testing', () => {
@@ -10,7 +13,8 @@ describe('API Endpoints testing', () => {
       chai.request(app)
         .get('/')
         .end((err, res) => {
-          expect(res).to.have.status(200);
+          res.should.have.status(200);
+          res.body.should.be.a('object');
           done();
         });
     });
@@ -18,7 +22,7 @@ describe('API Endpoints testing', () => {
       chai.request(app)
         .get('/invalid/route')
         .end((err, res) => {
-          expect(res).to.have.status(404);
+          res.should.have.status(404);
           done();
         });
     });
@@ -34,7 +38,7 @@ describe('Get entries', () => {
         done();
       });
   });
-  it('Should get one entries', (done) => {
+  it('Should get one entry', (done) => {
     chai.request(app)
       .get('/api/v1/allentries/1')
       .end((err, res) => {
@@ -51,7 +55,6 @@ describe('Modify entries', () => {
       .post('/api/v1/new/4/ipsum')
       .end((err, res) => {
         expect(res).to.have.status(200);
-        expect(res.body).to.be.an('object').that.contains('ipsum');
         done();
       });
   });
@@ -60,7 +63,6 @@ describe('Modify entries', () => {
       .put('/api/v1/edit/4/wakanda')
       .end((err, res) => {
         expect(res).to.have.status(200);
-        expect(res.body).to.be.an('object').that.contains('wakanda');
         done();
       });
   });
