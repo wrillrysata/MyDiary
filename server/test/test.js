@@ -34,7 +34,8 @@ describe('Get entries', () => {
     chai.request(app)
       .get('/api/v1/allentries')
       .end((err, res) => {
-        expect(res).to.have.status(200);
+        res.should.have.status(200);
+        res.body.should.be.a('array');
         done();
       });
   });
