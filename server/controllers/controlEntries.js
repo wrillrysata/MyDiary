@@ -39,7 +39,8 @@ class Entries {
     const { id } = req.params;
     const { note } = req.params;
     const result = entriesManager.addNew(id, note);
-    res.status(200).send(result);
+    // res.status(200).send(result);
+    res.json({ message: 'Successfully added!', result }).status(200);
   }
 
   /**
