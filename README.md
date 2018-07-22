@@ -8,5 +8,8 @@ My Diary is an online journal where users can pen down their thoughts and feelin
 # Features
 
 * Users can sign in or sign up
+* Users can get all entries
+* Users can get one entry
 * Users can add an entry
+* Users can update an entry
 
