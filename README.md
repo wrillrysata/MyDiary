@@ -13,3 +13,20 @@ My Diary is an online journal where users can pen down their thoughts and feelin
 * Users can add an entry
 * Users can update an entry
 
+# To Run :
+* Clone this repo : 
+`git clone https://github.com/Ijebusoma/My-Diary.git`
+
+* Navigate to the directory and type the commands: `npm install && npm run start`
+
+### Navigate to the browser and access the following URLs:
+
+* GET http://localhost:3000/api/v1/allentries - to view all entries
+
+* POST http://localhost:3000/api/v1/new/:id/:note - to add an entry
+
+* PUT http://localhost:3000/api/v1/edit/1/:note to update an entry with ID of 1
+
+
+
+
