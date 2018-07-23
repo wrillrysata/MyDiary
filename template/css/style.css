@@ -259,16 +259,6 @@ textarea:focus {
 ul {
   list-style-type: none;
 }
-#dropdown {
-  display: none;
-  background-color: white;
-  float: right;
-  width: 125px;
-  height: 90px;
-  position: relative;
-  top: 30px;
-  border-radius: 5px;
-}
 .hidden {
   display: none;
 }
