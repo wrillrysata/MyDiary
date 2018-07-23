@@ -30,7 +30,7 @@ a {
 
 h1 {
   font-size: 60px;
-  color: #add8e6;
+  color: white;
   font-weight: 800;
 }
 
@@ -68,7 +68,7 @@ p {
   position: relative;
   bottom: 40px;
   font-size: 25px;
-  color: #add8e6;
+  color: white ;
 }
 
 .note-text {
@@ -86,7 +86,7 @@ p {
 .btn {
   display: inline-block;
   border-radius: 5px;
-  background-color: navy;
+  background-color: #8B4513;
   color: #fff;
   box-sizing: inherit;
   font-family: "Roboto", sans-serif;
