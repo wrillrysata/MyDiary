@@ -109,7 +109,7 @@ input[type="password"] {
   padding: 12px 20px;
   margin: 8px 0;
   display: block;
-  border: 1px solid #ccc;
+  border: 1px solid black;
   box-sizing: border-box;
 }
 
@@ -121,8 +121,9 @@ input[type="password"] {
   overflow: auto;
   height: 500px;
   padding-top: 60px;
-  color: #0080ff;
+  color:black;
 }
+
 
 #save,
 #update {
@@ -225,9 +226,11 @@ textarea:focus {
   background-color: powderblue;
 }
 
-.footer {
+footer {
   position: relative;
-  top: 190px;
+  bottom: -70px;
+  background-color: #ccc;
+  width:100%;
 }
 
 .grid {
@@ -301,5 +304,11 @@ ul {
   }
   .grid {
     left: 80px;
+  }
+}
+@media screen and (min-width: 1024px){
+  .signup{
+    position: relative;
+    left:100px;
   }
 }
