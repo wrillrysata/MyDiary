@@ -29,6 +29,10 @@ My Diary is an online journal where users can pen down their thoughts and feelin
 
 * PUT http://localhost:3000/api/v1/edit/1/:note to update an entry with ID of 1
 
+## ACKNOWLEDGEMENTS
+ * [Andela Git Naming guide](https://github.com/andela/bestpractices/wiki/Git-naming-conventions-and-best-practices)
+ 
+ * [w3schools](w3schools.com)
 
 
 
