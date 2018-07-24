@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>My Diary</title>
+  <link rel="stylesheet" href="css/style.css">
+  
+</head>
+
+<!-- SVG icons -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" enable-background="new 0 0 100 100" xml:space="preserve" style="display: none;">
+    <defs>
+        <symbol id="icon-home2" viewBox="0 0 32 32">
+            <title>home2</title>
+            <path d="M16 1l-16 16 3 3 3-3v13h8v-6h4v6h8v-13l3 3 3-3-16-16zM16 14c-1.105 0-2-0.895-2-2s0.895-2 2-2c1.105 0 2 0.895 2 2s-0.895 2-2 2z"></path>
+            </symbol>
+            <symbol id="icon-heart" viewBox="0 0 32 32">
+                <title>heart</title>
+                <path d="M23.6 2c-3.363 0-6.258 2.736-7.599 5.594-1.342-2.858-4.237-5.594-7.601-5.594-4.637 0-8.4 3.764-8.4 8.401 0 9.433 9.516 11.906 16.001 21.232 6.13-9.268 15.999-12.1 15.999-21.232 0-4.637-3.763-8.401-8.4-8.401z"></path>
+                </symbol>
+
+
+    </defs>
+  </svg>
+
+<body id="dashboard">
+
+    <div id="Sidenav" class="sidenav">
+        <span id="close">&times;</span>
+        <svg class="icon icon-home2"><use xlink:href="#icon-home2"></use></svg>
+        <a href="dashboard.html">Home</a>
+        <a href="allnotes.html">All notes</a>
+        <a href="new.html">Add new</a>
+        <a href="userprofile.html">My profile</a>
+      </div>
+
+  <div class="top">
+        <span id="hamburger">&#9776;</span>
+    <h3 class="intro">Hi, Nessa </h3>
+  </div>
+  <div class="note-area flex center">
+        <textarea placeholder="What's on your mind?" cols="30" rows="5"></textarea>
+        <button id="save">Add Note</button>
+      </div>
+  <script src="js/sidebar.js"></script>
+</body>
+
+</html>
