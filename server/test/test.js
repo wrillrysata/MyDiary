@@ -55,7 +55,7 @@ describe('Get entries', () => {
 describe('Modify entry', () => {
   it('It should add an entry', (done) => {
     chai.request(app)
-      .post('/api/v1/new/4/ipsum')
+      .post('/api/v1/new/')
       .end((err, res) => {
         expect(res).to.have.status(200);
         expect(res.body).to.be.an('object');
@@ -65,7 +65,7 @@ describe('Modify entry', () => {
   });
   it('Should edit the entry', (done) => {
     chai.request(app)
-      .put('/api/v1/edit/4/wakanda')
+      .put('/api/v1/edit/1')
       .end((err, res) => {
         expect(res).to.have.status(200);
         expect(res.body).to.be.an('object');
