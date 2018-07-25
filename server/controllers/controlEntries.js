@@ -36,8 +36,7 @@ class Entries {
  * @returns {obj} //returns object
  */
   static addEntry(req, res) {
-    const { id } = req.body;
-    const { note } = req.body;
+    const { id, note } = req.body;
     const result = entriesManager.addNew(id, note);
     res.json({ message: 'Successfully added!', result }).status(200);
   }
@@ -50,8 +49,7 @@ class Entries {
  * @returns {obj} //returns object
  */
   static editEntry(req, res) {
-    const { id } = req.body;
-    const { note } = req.body;
+    const { id, note } = req.body;
     const result = entriesManager.edit(id, note);
     res.json({ message: 'Successfully updated!', result }).status(200);
   }
