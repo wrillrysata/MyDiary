@@ -23,7 +23,7 @@ class Entries {
  * @returns {obj} //returns object
  */
   static getOneEntry(req, res) {
-    const { id } = req.params;
+    const { id } = req.body;
     const result = entriesManager.getOne(id);
     res.status(200).send(result);
   }
@@ -36,8 +36,7 @@ class Entries {
  * @returns {obj} //returns object
  */
   static addEntry(req, res) {
-    const { id } = req.params;
-    const { note } = req.params;
+    const { id, note } = req.body;
     const result = entriesManager.addNew(id, note);
     res.json({ message: 'Successfully added!', result }).status(200);
   }
@@ -50,8 +49,7 @@ class Entries {
  * @returns {obj} //returns object
  */
   static editEntry(req, res) {
-    const { id } = req.params;
-    const { note } = req.params;
+    const { id, note } = req.body;
     const result = entriesManager.edit(id, note);
     res.json({ message: 'Successfully updated!', result }).status(200);
   }
