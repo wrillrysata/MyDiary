@@ -4,9 +4,9 @@
   "description": "My Diary is an online journal where users can pen down their thoughts and feelings.",
   "main": "app.js",
   "scripts": {
-    "start:dev": "cross-env NODE_ENV=development nodemon --exec babel-node server/bin/www",
+    "start-dev": "nodemon --exec nodemon server/app",
     "test": "NODE_ENV=test mocha server/test/*.js --exit  --require babel-register --reporter spec",
-    "start": "babel-node server/bin/www",
+    "start": "babel-node server/server --require babel-register",
     "build": "babel ./server/ -d dist/server",
     "heroku-postbuild": "npm run build",
     "coveralls": "NODE_ENV=test istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
@@ -33,7 +33,7 @@
     "babel-core": "^6.26.3",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env":"1.7.0",
+    "babel-preset-env": "1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.26.0",
     "body-parser": "^1.18.3",
@@ -43,6 +43,7 @@
     "istanbul": "^0.4.5",
     "mocha": "^5.2.0",
     "path": "^0.12.7",
+    "pg": "^7.4.3",
     "request": "^2.87.0"
   },
   "devDependencies": {
