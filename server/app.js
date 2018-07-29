@@ -14,6 +14,6 @@ router(app);
 
 // returns 404 for unknown routes
 app.all('*', (req, res) => {
-  res.status(404).send('This Route does not exist, please check again ');
+  res.status(404).send('This URL does not exist, please check again ');
 });
 export default app;

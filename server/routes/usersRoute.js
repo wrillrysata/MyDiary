@@ -1,10 +1,8 @@
 import express from 'express';
-import UserController from '../controllers/UserController';
+import userController from '../controllers/userController';
+import validation from '../helpers/validation';
 
 const usersRouter = express.Router();
-const User = new UserController();
 
-usersRouter.post('/auth/signup', (req, res) => {
-  User.signUp(req, res);
-});
+usersRouter.post('v1/api/auth/signup', validation.userSignupValidation, userController.createUser);
 export default usersRouter;
