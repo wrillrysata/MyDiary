@@ -5,7 +5,6 @@ export default{
      const {
                 userName, email, password, confirmPassword
             } = req.body;
-            console.log('validating');
             if(userName === '' || email === '' ){
                 return res.json({message: 'Please fill in all fields'});
             }
