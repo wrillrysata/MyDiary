@@ -2,7 +2,11 @@
 /* https://mherman.org/blog/2015/02/12/postgresql-and-nodejs/ */
 import db from '../helpers/dbHelper';
 import bcrypt from '../helpers/bcrypt';
+import dotenv from 'dotenv';
 import jwt from 'jsonwebtoken';
+
+ dotenv.config()
+ const secret = process.env.SECRET_KEY;
 
 export default{
    createUser: (req, res, next) => {
@@ -10,7 +14,6 @@ export default{
                 userName, email, password, confirmPassword
             } = req.body;
             const sql = 'INSERT INTO users ("userName", email, password) values($1, $2, $3) RETURNING *';
-            // const hash = bcrypt.hashPassword(password);
             db.query(sql, [userName, email,bcrypt.hashPassword(password)]),
             (err, result) => {
                 if (err) {
@@ -20,9 +23,6 @@ export default{
                    });
                   
                 } else {
-                    const token = jwt.sign({ id: result.rows.id }, cert, { algorithm: 'RS256' }, {
-                        expiresIn: 60 * 60,
-                      });
                     return res.status(201).json({
                        message: 'User registration successful',
                        token
@@ -58,9 +58,12 @@ export default{
                     token: null,
                   });
             }else{
-            const token = jwt.sign({ id: result.rows.id }, 'shhhh', {
-                expiresIn: 60 * 60,
-              });
+                const payload = {
+                    name: user.userName 
+                  };
+                  const token = jwt.sign(payload, secret, {
+                    expiresIn: 1440
+                  });
               return res.status(200).json({
                 message: 'Successfully logged in',
                 token,
