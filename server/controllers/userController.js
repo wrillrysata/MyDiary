@@ -25,10 +25,18 @@ export default{
           return res.status(500).json({
             message: 'User registration was not successful, please try again.',
           });
-        }
+        }else{
+            const payload = {
+                name: userName,
+              };
+              const token = jwt.sign(payload, secret, {
+                expiresIn: 1440,
+              });
         return res.status(201).json({
           message: 'User registration successful',
+          token
         });
+    }
       },
     );
   },
@@ -61,17 +69,21 @@ export default{
     const {
       email, password,
     } = req.body;
-
     const sql = 'SELECT * FROM users WHERE email = $1';
-    db.query(sql, [email], (err, result) => {
-      if (err) {
-        console.log(err);
+    db.query(
+      sql, [email],
+      (err, result) => {
+        if (err) {
         return res.status(500).json({
           message: 'There was an error while signing in user',
         });
       }
+      if(result.rowCount === 0){
+          return res.status(404).json({
+              message: 'No user found'
+          })
+      }
       const user = result.rows[0];
-
       const rightPassword = bcrypt.comparePassword(password, user.password);
       if (!rightPassword) {
         return res.status(401).json({
