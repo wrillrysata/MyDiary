@@ -37,20 +37,24 @@ PUT /entries/<entryId> | Modify a diary entry
 > Clone repo and cd into directory: 
 git clone https://github.com/Ijebusoma/My-Diary.git
 
-# install dependencies
+
+###### install dependencies
 >  npm install
- #serve app
+
+ ###### serve app
 > npm start
 
-# build for production
+######  build for production
 > npm run build
 
+
 ## Testing
-# Run test cases
+###### Run test cases
  > npm test
 
-UI Template : madeofco.de/My-Diary/template/dashboard.html,
-madeofco.de/My-Diary/template/index.html
+
+UI Template : http://madeofco.de/My-Diary/template/dashboard.html,
+http://madeofco.de/My-Diary/template/index.html
 
 API Endpoint: ije-my-diary.herokuapp.com/api/v1/
 
