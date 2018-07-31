@@ -1,13 +1,4 @@
 node_modules/
-.vscode
-.jshintrc
-
 .env
 server/dist
-server/config
 
-.nyc_output
-
-.DS_Store
-
-dist/
