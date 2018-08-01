@@ -16,7 +16,7 @@ export default{
     } = req.body;
 
 
-    const sql = 'INSERT INTO users ("userName", email, password) values($1, $2, $3) RETURNING *';
+    const sql = 'INSERT INTO users (username, email, password) values($1, $2, $3) RETURNING *';
     db.query(
       sql, [userName, email, bcrypt.hashPassword(password)],
       (err) => {
@@ -24,6 +24,7 @@ export default{
           console.log(err);
           return res.status(500).json({
             message: 'User registration was not successful, please try again.',
+            err
           });
         }else{
             const payload = {
@@ -49,7 +50,7 @@ export default{
       sql, [email],
       (err, result) => {
         if (err) {
-
+          console.log(err);
           return res.status(500).json({
             message: 'Could not retrieve User',
           });
