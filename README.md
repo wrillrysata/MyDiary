@@ -30,39 +30,40 @@ Endpoints | Functionality
 POST /auth/signup | Register a new user
 POST /auth/login | Sign in a user
 GET /entries | Fetch all user entries
-GET /entries/<entryId>| Fetch the details of an entry
-PUT /entries/<entryId> | Modify a diary entry
+GET /entries/`<entryId>`| Fetch the details of an entry
+PUT /entries/`<entryId>` | Modify a diary entry
+POST /entries | Modify a diary entry
 
 ## How to set up:
-> Clone repo and cd into directory: 
+* Clone repo and cd into directory: 
 git clone https://github.com/Ijebusoma/My-Diary.git
 
 
-###### install dependencies
+###### install dependencies:
 >  npm install
 
- ###### serve app
+ ###### serve app:
 > npm start
 
-######  build for production
+######  build for production:
 > npm run build
 
 
 ## Testing
-###### Run test cases
+###### Run test cases:
  > npm test
 
 
 UI Template : http://madeofco.de/My-Diary/template/dashboard.html,
 http://madeofco.de/My-Diary/template/index.html
 
-API Endpoint: ije-my-diary.herokuapp.com/api/v1/
+API Endpoint: https://ije-my-diary.herokuapp.com/api/v1/
 
 
 ## ACKNOWLEDGEMENTS
  * [Andela Git Naming guide](https://github.com/andela/bestpractices/wiki/Git-naming-conventions-and-best-practices)
  
- * [w3schools](w3schools.com)
+ * [W3schools](w3schools.com)
  * [Scotch IO](scotch.io)
  * [mherman.org](mherman.org)
 
