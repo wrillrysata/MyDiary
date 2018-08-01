@@ -13,7 +13,7 @@ export default class CreateTableSchema {
   */
   constructor() {
     this.pool = pool;
-    this.createTables = `CREATE TABLE IF NOT EXISTS users(
+    this.createTables = `DROP TABLE IF EXISTS users(
             id serial PRIMARY KEY NOT NULL,
             username varchar(255) NOT NULL,
             email varchar(255) NOT NULL,
@@ -22,12 +22,6 @@ export default class CreateTableSchema {
           );
           
           CREATE TABLE IF NOT EXISTS entries(
-            id serial PRIMARY KEY NOT NULL,
-            user_id integer NOT NULL, 
-            body varchar(255) NOT NULL,
-            created_at timestamp DEFAULT NOW()
-          );
-          CREATE TABLE IF NOT EXISTS extrastuff(
             id serial PRIMARY KEY NOT NULL,
             user_id integer NOT NULL, 
             body varchar(255) NOT NULL,
