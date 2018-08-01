@@ -13,7 +13,7 @@ export default class CreateTableSchema {
   */
   constructor() {
     this.pool = pool;
-    this.createTables = `DROP TABLE IF EXISTS users(
+    this.createTables = `CREATE TABLE IF NOT EXISTS users(
             id serial PRIMARY KEY NOT NULL,
             username varchar(255) NOT NULL,
             email varchar(255) NOT NULL,
@@ -41,7 +41,7 @@ export default class CreateTableSchema {
   run() {
         return this.pool.query(this.createTables)
           .then(() => {
-              // this.pool.end();
+             // this.pool.end();
           })
           .catch(err => {
               console.log(err);
