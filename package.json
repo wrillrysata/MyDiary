@@ -4,9 +4,9 @@
   "description": "My Diary is an online journal where users can pen down their thoughts and feelings.",
   "main": "app.js",
   "scripts": {
-    "start-dev": "nodemon --exec npm start",
+    "dev": "NODE_ENV=Dev babel-node server/server --require babel-register",
     "test": "NODE_ENV=test mocha server/test/*.js --exit  --require babel-register --reporter spec",
-    "start": "babel-node server/server --require babel-register",
+    "start": "NODE_ENV=Production babel-node server/server --require babel-register",
     "build": "babel ./server/ -d dist/server",
     "heroku-postbuild": "npm run build",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
@@ -45,7 +45,6 @@
     "dotenv": "^6.0.0",
     "express": "^4.16.3",
     "istanbul": "^0.4.5",
-    "joi": "^13.4.0",
     "jsonwebtoken": "^8.3.0",
     "mocha": "^5.2.0",
     "path": "^0.12.7",
