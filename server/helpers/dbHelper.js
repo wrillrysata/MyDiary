@@ -1,9 +1,10 @@
 import { Pool } from 'pg';
+import dotenv from 'dotenv';
 /** https://stackoverflow.com/questions/45174120/pg-connect-not-a-function */
 
-
+dotenv.config();
 const poolConfig = new Pool({
-  connectionString: 'postgres://vanessa:password@localhost:5432/diary',
+  connectionString: process.env.DATABASE_URL,
 });
 const db = poolConfig;
 db.connect(() => {
