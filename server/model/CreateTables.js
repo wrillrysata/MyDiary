@@ -27,12 +27,6 @@ export default class CreateTableSchema {
             body varchar(255) NOT NULL,
             created_at timestamp DEFAULT NOW()
           );
-          CREATE TABLE IF NOT EXISTS extrastuff(
-            id serial PRIMARY KEY NOT NULL,
-            user_id integer NOT NULL, 
-            body varchar(255) NOT NULL,
-            created_at timestamp DEFAULT NOW()
-          );
           
           CREATE TABLE IF NOT EXISTS notifications(
             id serial PRIMARY KEY NOT NULL,
@@ -47,7 +41,7 @@ export default class CreateTableSchema {
   run() {
         return this.pool.query(this.createTables)
           .then(() => {
-              // this.pool.end();
+             // this.pool.end();
           })
           .catch(err => {
               console.log(err);
