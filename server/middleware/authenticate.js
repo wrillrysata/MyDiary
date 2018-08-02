@@ -7,29 +7,15 @@ const secret = process.env.SECRET_KEY;
 
 export default {
   checkToken: (req, res, next) => {
-    // check if there's a token
-    const token = req.body.token || req.params || req.headers['x-access-token'];
-  
-    // Decode token
-    if (token) {
-      // Verifies secret 
-      jwt.verify(token, secret, function(err, decoded) {      
-        if (err) {
-          return res.json({ success: false, message: 'Failed to authenticate token.' });    
-        } else {
-            return res.json({ success: 'success', message: 'Access granted' }); 
-          req.decoded = decoded;    
-        }
-      });
-  
-    } else {
-      return res.status(401).send({ 
-          success: false, 
-          message: 'No token provided.' 
-      });
-  
-    }
+    console.log('req headers', req.headers);
+    const token = req.headers.authorization;
+
+    if (!token) return res.status(401).send({ auth: false, message: 'No token provided.' });
+
+    jwt.verify(token, secret, (err, decoded) => {
+      if (err) return res.status(500).send({ auth: false, message: 'Failed to authenticate token.' });
+      req.decoded = decoded;
+    });
     next();
-}
-}
-  
+  }
+};

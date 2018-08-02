@@ -12,7 +12,7 @@ const secret = process.env.SECRET_KEY;
 export default{
   createUser: (req, res) => {
     const {
-      userName, email, password,
+      userName, email, password
     } = req.body;
 
 
@@ -26,18 +26,25 @@ export default{
             message: 'User registration was not successful, please try again.',
             err
           });
-        }else{
+        }
+        const query = 'SELECT * FROM users WHERE email = $1';
+        db.query(query, [email],
+          (err, result) => {
+            if (err) {
+              console.log(err);
+            }
+            const user = result.rows[0];
             const payload = {
-                name: userName,
-              };
-              const token = jwt.sign(payload, secret, {
-                expiresIn: 1440,
-              });
-        return res.status(201).json({
-          message: 'User registration successful',
-          token
-        });
-    }
+              id: user.id
+            };
+            const token = jwt.sign(payload, secret, {
+              expiresIn: 1440,
+            });
+            return res.status(201).json({
+              message: 'User registration successful',
+              token
+            });
+          });
       },
     );
   },
@@ -75,33 +82,34 @@ export default{
       sql, [email],
       (err, result) => {
         if (err) {
-        return res.status(500).json({
-          message: 'There was an error while signing in user',
-        });
-      }
-      if(result.rowCount === 0){
+          return res.status(500).json({
+            message: 'There was an error while signing in user',
+          });
+        }
+        if (result.rowCount === 0) {
           return res.status(404).json({
-              message: 'No user found'
-          })
-      }
-      const user = result.rows[0];
-      const rightPassword = bcrypt.comparePassword(password, user.password);
-      if (!rightPassword) {
-        return res.status(401).json({
-          message: 'Password does not match',
-          token: null,
+            message: 'No user found'
+          });
+        }
+        const user = result.rows[0];
+        const rightPassword = bcrypt.comparePassword(password, user.password);
+        if (!rightPassword) {
+          return res.status(401).json({
+            message: 'Password does not match',
+            token: null,
+          });
+        }
+        const payload = {
+          id: user.id
+        };
+        const token = jwt.sign(payload, secret, {
+          expiresIn: 1440,
+        });
+        return res.status(200).json({
+          message: 'Successfully logged in',
+          token,
         });
       }
-      const payload = {
-        name: user.userName,
-      };
-      const token = jwt.sign(payload, secret, {
-        expiresIn: 1440,
-      });
-      return res.status(200).json({
-        message: 'Successfully logged in',
-        token,
-      });
-    });
+    );
   },
 };
