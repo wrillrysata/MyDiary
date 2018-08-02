@@ -32,7 +32,7 @@ POST /auth/login | Sign in a user
 GET /entries | Fetch all user entries
 GET /entries/`<entryId>`| Fetch the details of an entry
 PUT /entries/`<entryId>` | Modify a diary entry
-POST /entries | Modify a diary entry
+DELETE /entries/`<entryId>` | Modify a diary entry
 
 ## How to set up:
 * Clone repo and cd into directory: 
