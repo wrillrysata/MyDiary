@@ -3,12 +3,10 @@ import db from '../helpers/dbHelper';
 export default {
   getAll: (req, res) => {
     const userId = req.decoded.id;
-    console.log(userId);
     const sql = 'SELECT * from entries WHERE user_id =$1';
     db.query(sql, [userId],
       (err, result) => {
         if (err) {
-          console.log(err);
           return res.status(500).json({
             message: 'There was a problem getting entry',
           });
@@ -22,17 +20,14 @@ export default {
 
   getOne: (req, res) => {
     const { id } = req.params;
-    console.log(id);
     const sql = 'SELECT * from entries WHERE id = $1';
     db.query(sql, [id],
       (err, result) => {
         if (err) {
-          console.log(err);
           return res.status(500).json({
             message: 'Could not get entry',
           });
         }
-        console.log(result);
         return res.status(200).json({
           message: 'Successfully retrieved entry',
           entry: result.rows[0]
@@ -41,12 +36,10 @@ export default {
   },
   updateEntry: (req, res) => {
     const { id, body } = req.body;
-    console.log(req.body);
     const sql = 'UPDATE entries SET body=$1 WHERE id=$2 RETURNING *';
     db.query(sql, [body, id],
       (err, result) => {
         if (err) {
-          console.log(err);
           return res.status(500).json({
             message: 'Could not update entry',
           });
@@ -59,19 +52,15 @@ export default {
   },
 
   deleteEntry: (req, res) => {
-    // parseInt(id, 10)
     const { id } = req.params;
-    console.log(id);
     const sql = 'DELETE from entries WHERE id = $1';
     db.query(sql, [id],
       (err, result) => {
         if (err) {
-          console.log(err);
           return res.status(500).json({
             message: 'Could not delete entry',
           });
         }
-        console.log(result);
         return res.status(200).json({
           message: 'Successfully deleted entry'
         });
@@ -81,13 +70,11 @@ export default {
     const {
       text
     } = req.body;
-    console.log(req.decoded);
     const userId = req.decoded.id;
     const sql = 'INSERT into entries (body, user_id) VALUES ($1, $2)';
     db.query(sql, [text, userId],
       (err) => {
         if (err) {
-          console.log(err);
           return res.status(500).json({
             message: 'Could not add new entry, try again.',
           });

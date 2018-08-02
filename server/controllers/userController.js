@@ -21,7 +21,6 @@ export default{
       sql, [userName, email, bcrypt.hashPassword(password)],
       (err) => {
         if (err) {
-          console.log(err);
           return res.status(500).json({
             message: 'User registration was not successful, please try again.',
             err
@@ -57,7 +56,6 @@ export default{
       sql, [email],
       (err, result) => {
         if (err) {
-          console.log(err);
           return res.status(500).json({
             message: 'Could not retrieve User',
           });
