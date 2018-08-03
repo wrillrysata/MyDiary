@@ -93,8 +93,7 @@ export default{
         const rightPassword = bcrypt.comparePassword(password, user.password);
         if (!rightPassword) {
           return res.status(401).json({
-            message: 'Password does not match',
-            token: null,
+            message: 'Wrong username or password',
           });
         }
         const payload = {
