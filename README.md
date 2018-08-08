@@ -36,7 +36,7 @@ DELETE /entries/`<entryId>` | Delete a diary entry
 
 ## How to set up:
 * Clone repo and cd into directory: 
-git clone https://github.com/Ijebusoma/My-Diary.git
+git clone https://github.com/Ijebusoma/journale.git
 
 
 ###### install dependencies:
