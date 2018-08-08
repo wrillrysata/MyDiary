@@ -6,36 +6,43 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Signup page</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-        <div class="top">
-                <a href="index.html">
-                  <h3 class="headline">Home </h3>
-                </a>
-              </div>
-    <div class="container flex">
-        <div class="signup">
-        
-                <form>
-                
-                    
-                    <label><b>Email</b></label>
-                    <input type="text" placeholder="Enter Email" name="email" required>
-                    <label><b>Username</b></label>
-                    <input type="text" placeholder="Pick a username" name="username" required>
-               
-                    <label><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="password" required>
-                    <label><b>Confirm Password</b></label>
-                    <input type="password" placeholder="Retype Password" name="repassword" required>
-                
-                      <center><button class="btn center">Sign Up</button>
-                        <button  class="btn center">Cancel</button>
-                      </center>
-                    </form>
-                    </div>
-                  </div>
-               
-              </div>
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand" href="#">My Diary</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="index.html">Home</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+
+          <li><a href="signin.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <center>
+    <div class="form col-md-12">
+    <input type="text" value="Enter mail">
+    <input type="text" value="Username">
+    <input type="text" value="Enter Password">
+    <input type="text" value="Confirm Password">
+    <input type="submit" value="Signup">
+  </div>
+  </center>
+
 </body>
 </html>

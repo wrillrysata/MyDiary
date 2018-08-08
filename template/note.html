@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title></title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <!-- SVG icons -->
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" enable-background="new 0 0 100 100" xml:space="preserve" style="display: none;">
@@ -32,34 +35,68 @@
 
     </defs>
   </svg>
-<body>
-        <div class="top">
-                <a href="index.html"><h3 class="headline">My Diary </h3></a>
-                 <h3 class="intro">Hi, Ness </h3>
-             </div>
-    <div class="container">
-        <div class="flex center">
-       <article class="single">Wakanda forever. Je suis Shuri. Dit sit Lorem ipsum amet
-            Lorem ipsum dit amet. Dit sit amet Lorem ispum dot ametLorem ipsum dit amet.
-             Dit sit amet Lorem ispum dot amet
-             Lorem ipsum dit amet. Dit sit amet Lorem ispum dot amet
-             Lorem ipsum dit amet. Dit sit amet Lorem ispum dot amet
-             Lorem ipsum dit amet. Dit sit amet Lorem ispum dot amet <br>
-            
-             <hr>
-             <a href="editnote.html"><svg class="icon icon-new-message"><use xlink:href="#icon-new-message"></use></svg></a>
-             <a href="deletenote.html"><svg class="icon icon-bin"><use xlink:href="#icon-bin"></use></svg></a>
-            <span id="date">Fri, June 5</span>
-       </article>
+<body onload="update()">
+        <div id="Sidenav" class="sidenav">
+                <span id="close">&times;</span>
+                <svg class="icon icon-home2"><use xlink:href="#icon-home2"></use></svg>
+                <a href="dashboard.html">Home</a>
+                <a href="allnotes.html">All notes</a>
+         
+                <a href="userprofile.html">My profile</a>
+                <a href="logout.html">Logout</a>
+              </div>
+        
+              <nav class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                      <div class="navbar-header">
+                        <a class="navbar-brand" href="#">My Diary</a>
+                        <a class="navbar-brand" id="hamburger">&#9776;</a>
+                      </div>
+                    </div>
+                  </nav>
 
-       </div>
-        </div>
+                  <div class="container fluid">
+                    <div class="col-md-12">
+                        <div class="well">
+                         <textarea id="textarea">
+                            Oh acceptance apartments up sympathize astonished delightful. Waiting him new lasting towards. Continuing melancholy especially so to. Me unpleasing impossible in attachment announcing so astonished. What ask leaf may nor upon door. Tended remain my do stairs. Oh smiling amiable am so visited cordial in offices hearted. 
+
+Up branch to easily missed by do. Admiration considered acceptance too led one melancholy expression. Are will took form the nor true. Winding enjoyed minuter her letters evident use eat colonel. He attacks observe mr cottage inquiry am examine gravity. Are dear but near left was. Year kept on over so as this of. She steepest doubtful betrayed formerly him. Active one called uneasy our seeing see cousin tastes its. Ye am it formed indeed agreed relied piqued. 
+
+Advantage old had otherwise sincerity dependent additions. It in adapted natural hastily is justice. Six draw you him full not mean evil. Prepare garrets it expense windows shewing do an. She projection advantages resolution son indulgence. Part sure on no long life am at ever. In songs above he as drawn to. Gay was outlived peculiar rendered led six. 
+
+He unaffected sympathize discovered at no am conviction principles. Girl ham very how yet hill four show. Meet lain on he only size. Branched learning so subjects mistress do appetite jennings be in. Esteems up lasting no village morning do offices. Settled wishing ability musical may another set age. Diminution my apartments he attachment is entreaties announcing estimating. And total least her two whose great has which. Neat pain form eat sent sex good week. Led instrument sentiments she simplicity. 
+
+Breakfast procuring nay end happiness allowance assurance frankness. Met simplicity nor difficulty unreserved who. Entreaties mr conviction dissimilar me astonished estimating cultivated. On no applauded exquisite my additions. Pronounce add boy estimable nay suspected. You sudden nay elinor thirty esteem temper. Quiet leave shy you gay off asked large style. 
+
+Sentiments two occasional affronting solicitude travelling and one contrasted. Fortune day out married parties. Happiness remainder joy but earnestly for off. Took sold add play may none him few. If as increasing contrasted entreaties be. Now summer who day looked our behind moment coming. Pain son rose more park way that. An stairs as be lovers uneasy. 
+
+Respect forming clothes do in he. Course so piqued no an by appear. Themselves reasonable pianoforte so motionless he as difficulty be. Abode way begin ham there power whole. Do unpleasing indulgence impossible to conviction. Suppose neither evident welcome it at do civilly uncivil. Sing tall much you get nor. 
+
+Not far stuff she think the jokes. Going as by do known noise he wrote round leave. Warmly put branch people narrow see. Winding its waiting yet parlors married own feeling. Marry fruit do spite jokes an times. Whether at it unknown warrant herself winding if. Him same none name sake had post love. An busy feel form hand am up help. Parties it brother amongst an fortune of. Twenty behind wicket why age now itself ten. 
+
+Effect if in up no depend seemed. Ecstatic elegance gay but disposed. We me rent been part what. An concluded sportsman offending so provision mr education. Bed uncommonly his discovered for estimating far. Equally he minutes my hastily. Up hung mr we give rest half. Painful so he an comfort is manners. 
+
+Paid was hill sir high. For him precaution any advantages dissimilar comparison few terminated projecting. Prevailed discovery immediate objection of ye at. Repair summer one winter living feebly pretty his. In so sense am known these since. Shortly respect ask cousins brought add tedious nay. Expect relied do we genius is. On as around spirit of hearts genius. Is raptures daughter branched laughter peculiar in settling. 
+
+
+                         </textarea>
+                         <input type="submit" value="Update" id="update">
+                         <hr>
+                         <div class="svg">
+                         <svg class="icon icon-new-message"><use xlink:href="#icon-new-message"></use></svg></a>
+                        <a href="deletenote.html"> <svg class="icon icon-bin"><use xlink:href="#icon-bin"></use></svg></a>
+                        </div> 
+                        </div>
+                        </div>
+                      </div>
         <center>
                 <br>
                     <svg class="icon icon-backward2"><use xlink:href="#icon-backward2"></use></svg>
                 <svg class="icon icon-forward3"><use xlink:href="#icon-forward3"></use></svg>
             </center>
     </div>
-    <script src="js/dropdown.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/sidebar.js"></script>
 </body>
 </html>

@@ -1,15 +1,7 @@
 
-function onReady(callback) {
-    /** Checks if the webpage has loaded fully before proceeding to run the app **/
-    document.readyState === "interactive" || document.readyState === "complete"
-      ? callback()
-      : document.addEventListener("DOMContentLoaded", callback);
-  }
-function runApp(){
-var signinButton = document.getElementById('sign-in');
-var signupButton = document.getElementById('sign-up');
-
-
+function redirect(){
+    const signinButton = document.getElementById('sign-in');
+const signupButton = document.getElementById('sign-up');
 signinButton.addEventListener('click', () => {
   window.location.assign("signin.html");
 });
@@ -17,7 +9,15 @@ signinButton.addEventListener('click', () => {
 signupButton.addEventListener('click', () => {
 window.location.assign("signup.html");
 });
-}
 
-onReady(runApp);
+  }
+function update(){
+const textArea = document.getElementById('textarea');
+textArea.disabled=true;
+const editIcon = document.getElementById('icon-new-message');
+editIcon.addEventListener('click', () => {
+textArea.disabled = false;
+
+})
+}
 

@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>My Profile</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <!-- SVG icons -->
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" enable-background="new 0 0 100 100" xml:space="preserve" style="display: none;">
@@ -28,22 +31,49 @@
       </svg>
 
 <body>
-                <div id="Sidenav" class="sidenav">
-                                <span id="close">&times;</span>
-                                <svg class="icon icon-home2"><use xlink:href="#icon-home2"></use></svg>
-                                <a href="dashboard.html">Home</a>
-                                <a href="allnotes.html">All notes</a>
-                                <a href="new.html">Add new</a>
-                                <a href="userprofile.html">My profile</a>
-                              </div>
-                        
-                          <div class="top">
-                                <span id="hamburger">&#9776;</span>
-                            <h3 class="intro">Hi, Nessa </h3>
-                          </div>
-                          <br>
+    <div id="Sidenav" class="sidenav">
+        <span id="close">&times;</span>
+        <svg class="icon icon-home2"><use xlink:href="#icon-home2"></use></svg>
+        <a href="dashboard.html">Home</a>
+        <a href="allnotes.html">All notes</a>
+ 
+        <a href="userprofile.html">My profile</a>
+        <a href="logout.html">Logout</a>
+      </div>
+
+      <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <a class="navbar-brand" href="#">My Diary</a>
+                <a class="navbar-brand" id="hamburger">&#9776;</a>
+              </div>
+            </div>
+          </nav>
+
+
                 <h3>My Profile</h3>
                 <hr>
+                <div class="container fluid">
+                  <div class="col-md-10">
+                    <div class="well">
+                      <p class="profile">Reminder: Weekly</p>
+                      </div>
+                     
+                    </div>
+                  <div class="col-md-12">
+                      <div class="well">
+                        <p class="profile">Username:</p>
+                        <p class="profile">Nessa</p>
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="well">
+                          <p class="profile">Email:</p>
+                          <p class="profile">vanessaosuka@gmail.com</p>
+                        </div>
+                      </div>
+                </div>
+                <!--
         <div class="grid">
            
        <div class="info-block center">
@@ -66,6 +96,7 @@
                         </div>
 </div>
 </div>
+-->
 
 <script src="js/sidebar.js"></script>    
 </body>
