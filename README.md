@@ -4,7 +4,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/Ijebusoma/My-Diary/badge.svg?branch=develop&service=github)](https://coveralls.io/github/Ijebusoma/My-Diary?branch=develop)
 
 ## My-Diary
-My Diary is an online journal where users can pen down their thoughts and feelings.
+My Diary is an online journal where users can safely pen down their thoughts and feelings.
 
 ## Required Features
 
