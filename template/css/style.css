@@ -5,7 +5,8 @@ body {
   font-family: "Open Sans Condensed", sans-serif;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  overflow: auto;
+  
 }
 
 #main {
@@ -15,6 +16,10 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   max-width: 100%;
+  overflow: hidden;
+}
+nav{
+  background-color:#00BFFF;
 }
 #cover{
   background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
@@ -46,8 +51,8 @@ h1 {
   font-size:30px;
   cursor:pointer;
   position: relative;
-  top:5px;
-  left:20px;
+  top:3px;
+  left:10px;
 }
 #close{
   color:white;
@@ -67,6 +72,7 @@ h1 {
   background-color:black;
   overflow-x: hidden;
   transition: 0.5s;
+  display:block;
 }
 .icon-home2{
   color:white;
@@ -127,7 +133,7 @@ p {
 
 .clearfix {
   position: relative;
-  margin-top: 40px;
+  
 }
 
 .btn {
@@ -145,6 +151,11 @@ p {
   position: relative;
   top: 10px;
 }
+.svg{
+  display: block;
+  float: right;
+}
+
 
 .btn:hover {
   background-color: black;
@@ -152,26 +163,54 @@ p {
 
 input[type="text"],
 input[type="password"] {
-  width: 100%;
+  width: 300px;
   padding: 12px 20px;
   margin: 8px 0;
   display: block;
   border: 1px solid black;
   box-sizing: border-box;
 }
-
-.signup {
-  display: block;
-  left: 0;
-  top: 0;
-  width: 300px;
-  overflow: auto;
-  height: 500px;
-  padding-top: 60px;
-  color:black;
+input[type="submit"]{
+  width:100px;
+  height:40px;
+  border-radius:5px;
+  background-color: #00BFFF;
+  color: #fff;
+  box-sizing: inherit;
+  font-family: "Roboto", sans-serif;
+  font-weight: 200px;
+  font-size: 15px;
+  position: relative;
+  display: inline;
 }
 
-
+.form{
+ position: relative;
+ top:150px;
+}
+.save{
+  position: relative;
+  float:right;
+  right:10px;
+}
+@media screen and (min-width: 768px) {
+  .save{
+    position: relative;
+    right:90px;
+    
+  }
+}
+@media screen and (min-width: 1024px){
+  .save{
+    right:250px;
+  }
+}
+.top{
+  background-color: #00BFFF;
+  height:80px;
+  max-width:100%;
+}
+/**
 #save,
 #update {
   display: inline-block;
@@ -184,6 +223,7 @@ input[type="password"] {
   background-color: #00BFFF;
   color: white;
 }
+**/
 #text-redirect{
   text-align: center;
   position: relative;
@@ -201,29 +241,54 @@ input[type="password"] {
 }
 
 textarea {
-  position: relative;
-  overflow: auto;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  max-width: 100%;
   width: 600px;
   height: 120px;
   border: 3px solid #cccccc;
   border-radius: 5px;
-  justify-content: flex-start;
   font-size: 20px;
+  
+  /**
+  position: relative;
+  left:150px;
+  width: 600px;
+  height: 120px;
+  border: 3px solid #cccccc;
+  border-radius: 5px;
+  font-size: 20px;
+  **/
+}
+.icon-backward2, .icon-forward3{
+  cursor: pointer;
+}
+.well{
+  position: relative;
+  top:70px;
+}
+
+.well p{
+  position: relative;
+  top:10px;
+  font-size:20px;
+  display: inline;
+  color:black;
+}
+
+.clearfix{
+  position: relative;
+  top:100px;
+}
+.right{
+  position: relative;
+  left:90px;
 }
 
 textarea:focus {
   outline: none !important;
   border: 2px solid cornflowerblue;
-}
-
-.top {
-  width: 100%;
-  height: 50px;
-  background-color:#00BFFF;
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
 }
 
 .headline {
@@ -259,7 +324,7 @@ textarea:focus {
   background-color: powderblue;
 }
 .note{
-  margin-top: 30px;
+  margin-top: 150px;
   border: 2px solid burlywood;
   box-shadow: 0 3px 3px #ccc;
   width: 200px;
@@ -341,9 +406,13 @@ ul {
   font-size: 10px;
   color: brown;
   font-weight: 900;
+  float: left;
+}
+#reminder {
+  position: relative;
+  margin-top: 20px;
   float: right;
 }
-
 @media screen and (max-width: 700px) {
   #save {
     width: 400px;
@@ -377,10 +446,19 @@ ul {
   .grid {
     left: 80px;
   }
+  #update{
+    position: relative;
+    top:10px;
+  }
 }
 @media screen and (min-width: 1024px){
   .signup{
     position: relative;
     left:100px;
+  }
+  #update{
+    position: relative;
+    right:90px;
+    top:40px;
   }
 }
