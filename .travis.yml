@@ -1,21 +1,26 @@
-   language: node_js
-   node_js:
-     - "node"
-   env:
-    global:
-    - CC_TEST_REPORTER_ID=7de8b9fae58653bb84f6701a499b5583b3ba7f4fcacf67e75195524cb15919d6\
-   before_script:
-    - npm global add nyc
-    - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-    - chmod +x ./cc-test-reporter
-    - ./cc-test-reporter before-build
-    script:
-    - nyc --reporter=lcov npm run test
+language: node_js
 
-    after_script:
-    - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
- 
-    after_success:
-    - npm run coverage
-  before_install: 
-      if [[ `npm -v` != 3* ]]; then npm i -g npm@3; fi
+node_js:
+  - "stable"
+env:
+  global:
+    - CC_TEST_REPORTER_ID=7de8b9fae58653bb84f6701a499b5583b3ba7f4fcacf67e75195524cb15919d6\
+
+before_script:
+  - npm global add nyc
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+
+
+script:
+  - nyc --reporter=lcov npm run test
+
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+
+cache:
+  directories:
+    - "node_modules"
+
+after_success: npm run coverage
