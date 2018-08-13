@@ -3,9 +3,21 @@ import dotenv from 'dotenv';
 /** https://stackoverflow.com/questions/45174120/pg-connect-not-a-function */
 
 dotenv.config();
-const poolConfig = new Pool({
-  connectionString: process.env.DATABASE_URL,
-});
+let poolConfig;
+
+if (process.env.NODE_ENV === 'Development') {
+  poolConfig = new Pool({
+    connectionString: process.env.DATABASE_URL_DEV,
+  });
+} else if (process.env.NODE_ENV === 'Test') {
+  poolConfig = new Pool({
+    connectionString: process.env.DATABASE_URL_TEST,
+  });
+} else {
+  poolConfig = new Pool({
+    connectionString: process.env.DATABASE_URL,
+  });
+}
 const db = poolConfig;
 db.connect(() => {
   console.log('Connection successful');

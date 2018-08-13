@@ -4,8 +4,8 @@
   "description": "My Diary is an online journal where users can pen down their thoughts and feelings.",
   "main": "app.js",
   "scripts": {
-    "dev": "NODE_ENV=Dev babel-node server/server --require babel-register",
-    "test": "NODE_ENV=test mocha server/test/*.js --exit  --require babel-register --reporter spec",
+    "dev": "NODE_ENV=Development babel-node server/server --require babel-register",
+    "test": "NODE_ENV=Test mocha server/test/*.js --exit  --require babel-register --reporter spec",
     "start": "NODE_ENV=Production babel-node server/server --require babel-register",
     "build": "babel ./server/ -d dist/server",
     "heroku-postbuild": "npm run build",
