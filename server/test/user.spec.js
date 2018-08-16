@@ -95,7 +95,7 @@ describe('Authentication tests', () => {
   });
   it('Should throw an error when a user tries sigining in with a wrong password', (done) => {
     const existingUser = {
-      email: 'ijey@gmail.com',
+      email: 'kunu@gmail.com',
       password: 'ness1234',
 
     };
@@ -110,7 +110,7 @@ describe('Authentication tests', () => {
   });
   it('Should log in a user', (done) => {
     const existingUser = {
-      email: 'ijey@gmail.com',
+      email: 'kunu@gmail.com',
       password: 'ness_',
 
     };
