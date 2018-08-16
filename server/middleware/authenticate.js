@@ -7,7 +7,6 @@ const secret = process.env.SECRET_KEY;
 
 export default {
   checkToken: (req, res, next) => {
-    console.log('req headers', req.headers);
     const token = req.headers.authorization;
 
     if (!token) return res.status(401).send({ auth: false, message: 'Please login first' });
