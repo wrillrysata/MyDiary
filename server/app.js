@@ -15,7 +15,7 @@ router(app);
 new CreateTableSchema().run();
 // returns 404 for unknown routes
 app.all('*', (req, res) => {
-  res.status(404).send('This URL does not exist, please check again ');
+  res.status(404).json({ message: 'The URL you entered does not exist' });
 });
 
 export default app;
