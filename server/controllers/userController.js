@@ -85,7 +85,7 @@ export default{
           });
         }
         if (result.rowCount === 0) {
-          return res.status(422).json({
+          return res.status(404).json({
             message: 'No user found'
           });
         }
