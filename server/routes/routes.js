@@ -7,7 +7,7 @@ import entryController from '../controllers/entryController';
 const router = (app) => {
   app.get('/', (req, res) => {
     res.status(200)
-      .json({ message: 'Welcome to My Diary App' });
+      .send('/index.html');
   });
   app.get('/api/v1/entries', authenticate.checkToken, entryController.getAll);
   app.get('/api/v1/entries/:id', authenticate.checkToken, entryController.getOne);

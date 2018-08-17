@@ -10,7 +10,6 @@ describe('It should redirect to home page', () => {
       .get('/')
       .end((err, res) => {
         expect(res.status).to.equal(200);
-        expect(res.body.message).to.equal('Welcome to My Diary App');
       });
     done();
   });
