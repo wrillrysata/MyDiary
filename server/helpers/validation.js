@@ -3,7 +3,7 @@ export default{
     userSignupValidation: (req,res, next) => {
 
      const {
-                userName, email, password, confirmPassword
+                userName, email, password
             } = req.body;
             if(userName === '' || email === '' ){
                 return res.json({message: 'Please fill in all fields'});
