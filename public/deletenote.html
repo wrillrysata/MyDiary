@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+        <div id="Sidenav" class="sidenav">
+                <span id="close">&times;</span>
+                <svg class="icon icon-home2"><use xlink:href="#icon-home2"></use></svg>
+                <a href="dashboard.html">Home</a>
+                <a href="allnotes.html">All notes</a>
+         
+                <a href="userprofile.html">My profile</a>
+                <a href="logout.html">Logout</a>
+              </div>
+        
+              <nav class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                      <div class="navbar-header">
+                        <a class="navbar-brand" href="#">My Diary</a>
+                        <a class="navbar-brand" id="hamburger">&#9776;</a>
+                      </div>
+                    </div>
+                  </nav>
+    <div class="container fluid">
+        <div class="col-md-6">
+          
+    <h4>Do you really want to delete this note?</h4>
+    <div class="right">
+    <input type="submit" value="Sure, Delete" id="delete">
+    <input type="submit" value="Oops, no" id="cancel">
+    </div>
+    </div>
+    </div>
+    </div>
+    <script src="js/sidebar.js"></script>
+</body>
+</html>
