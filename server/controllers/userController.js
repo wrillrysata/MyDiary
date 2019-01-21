@@ -49,11 +49,11 @@ export default{
   },
   findUser: (req, res, next) => {
     const {
-      email,
+      userName
     } = req.body;
-    const sql = 'SELECT * FROM users WHERE email = $1';
+    const sql = 'SELECT * FROM users WHERE username = $1';
     db.query(
-      sql, [email],
+      sql, [userName],
       (err, result) => {
         if (err) {
           return res.status(500).json({
@@ -63,7 +63,7 @@ export default{
         const user = result.rows[0];
         if (user) {
           return res.status(409).json({
-            message: 'User already exists',
+            message: 'User already exists, please login',
           });
         }
         next();
@@ -73,11 +73,11 @@ export default{
 
   loginUser: (req, res) => {
     const {
-      email, password,
+      username, password,
     } = req.body;
-    const sql = 'SELECT * FROM users WHERE email = $1';
+    const sql = 'SELECT * FROM users WHERE username = $1';
     db.query(
-      sql, [email],
+      sql, [username],
       (err, result) => {
         if (err) {
           return res.status(500).json({

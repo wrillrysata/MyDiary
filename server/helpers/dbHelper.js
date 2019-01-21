@@ -1,6 +1,5 @@
 import { Pool } from 'pg';
 import dotenv from 'dotenv';
-/** https://stackoverflow.com/questions/45174120/pg-connect-not-a-function */
 
 dotenv.config();
 let poolConfig;

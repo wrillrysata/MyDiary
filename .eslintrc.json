@@ -7,8 +7,13 @@
     "env": {
         "node": true,
         "es6": true,
-        "mocha": true
+        "mocha": true,
+        "browser": true
     },
+    "ecmaFeatures": {
+        "jsx": true
+    },
+    "parser": "babel-eslint",
     "rules": {
         "one-var": 0,
         "no-console": "off",

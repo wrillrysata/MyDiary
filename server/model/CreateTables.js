@@ -34,17 +34,16 @@ export default class CreateTableSchema {
             user_id varchar(255) NOT NULL,
             created_at timestamp DEFAULT NOW(),
             time timestamp NOT NULL
-          )`
-
-
+          )`;
   }
+
   run() {
-        return this.pool.query(this.createTables)
-          .then(() => {
-             // this.pool.end();
-          })
-          .catch(err => {
-              console.log(err);
-        });
-    };
+    return this.pool.query(this.createTables)
+      .then(() => {
+        // this.pool.end();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
 }
