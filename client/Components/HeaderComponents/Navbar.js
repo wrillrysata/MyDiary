@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => { // Functional component i.e stateless
         return(
@@ -15,7 +15,7 @@ const NavBar = () => { // Functional component i.e stateless
       </div>
       <div className="collapse navbar-collapse" id="myNavbar">
         <ul className="nav navbar-nav">
-          <li className="active"><a href="index.html">Home</a></li>
+         <li> <Link to="/">Home</Link></li>
             </ul>
       
         <ul className="nav navbar-nav navbar-right">
