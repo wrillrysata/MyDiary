@@ -7,7 +7,7 @@
  */
 export default function validator(userData) {
   const error = {};
-  const { username, email, password } = userData;
+  const { userName, email, password } = userData;
   let hasError = false;
 
   if (email === '') {
@@ -15,7 +15,7 @@ export default function validator(userData) {
     error.mailError = 'Email field cannot be empty';
   }
 
-  if (username.length < 3) {
+  if (userName.length < 3) {
     hasError = true;
     error.userError = 'Username needs to be atleast 5 characters long';
   }
