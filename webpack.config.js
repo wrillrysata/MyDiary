@@ -7,9 +7,9 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx']
   },
-  entry: path.join(__dirname, '/src/index.js'),
+  entry: path.join(__dirname, '/client/index.js'),
   output: {
-    path: path.join(__dirname, '/src/dist'),
+    path: path.join(__dirname, '/client/dist'),
     filename: 'bundle.js',
     publicPath: '/'
   },
@@ -59,8 +59,9 @@ module.exports = {
     })
   ],
   devServer: {
-    contentBase: path.join(__dirname, 'public'),
+    contentBase: path.join(__dirname, 'dist/'),
     port: 5000,
+    historyApiFallback: true,
     proxy: {
       '/api': 'http://localhost:3000'
     }

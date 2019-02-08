@@ -33,15 +33,18 @@
   "dependencies": {
     "@babel/cli": "^7.2.3",
     "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
+    "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-react": "^7.0.0",
     "@material/textfield": "^0.39.3",
+    "axios": "^0.18.0",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.5",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "bcrypt": "^3.0.3",
     "body-parser": "^1.18.3",
+    "bootstrap": "^4.2.1",
     "chai": "^4.1.2",
     "chai-http": "^4.0.0",
     "cors": "^2.8.5",
@@ -54,9 +57,13 @@
     "path": "^0.12.7",
     "pg": "^7.4.3",
     "pg-promise": "^5.9.7",
+    "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-dom": "^16.7.0",
+    "react-redux": "^6.0.0",
     "react-router-dom": "^4.3.1",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
     "request": "^2.87.0",
     "supertest": "^3.1.0",
     "webpack-dev-server": "^3.1.5"
@@ -84,4 +91,3 @@
     "webpack-cli": "^3.1.0"
   }
 }
-
