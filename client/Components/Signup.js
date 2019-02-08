@@ -55,12 +55,11 @@ class Signup extends Component {
 
     });
     const userData = {
-      username: this.state.username,
+      userName: this.state.username,
       email: this.state.email,
       password: this.state.password
     };
     const error = validator(userData);
-    console.log(Object.keys(error).length);
     const hasError = Object.keys(error).length;
     if (hasError > 0) {
       const { userError, mailError, passError, } = error;
