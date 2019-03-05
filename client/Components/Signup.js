@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import validator from '../helpers/validator';
 import { registerUser } from '../actions/authAction';
@@ -42,6 +43,17 @@ class Signup extends Component {
   }
 
   /**
+ * Lifecycle method - after component mounts
+ * @param {null} null
+ * @returns {null} Returns nothing
+ */
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push('/dashboard');
+    }
+  }
+
+  /**
  * Handle submit event
  * @param {event} event
  * @returns {null} Returns nothing
@@ -69,7 +81,7 @@ class Signup extends Component {
         passError
       });
     } else {
-      this.props.registerUser(userData);
+      this.props.registerUser(userData, this.props.history);
     }
   }
 
@@ -120,11 +132,12 @@ class Signup extends Component {
 
 Signup.propTypes = {
   registerUser: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
 
 };
 const mapStateToProps = state => ({
   auth: state.auth,
   errors: state.errors
 });
-export default connect(mapStateToProps, { registerUser })(Signup);
+export default connect(mapStateToProps, { registerUser })(withRouter(Signup));

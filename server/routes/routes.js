@@ -1,4 +1,3 @@
-
 import userController from '../controllers/userController';
 // import validation from '../middleware/validation';
 import authenticate from '../middleware/authenticate';
