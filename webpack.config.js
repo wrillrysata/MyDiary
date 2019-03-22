@@ -50,7 +50,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: path.join(__dirname, 'public'),
+      template: path.join(__dirname, 'public/index.html'),
       inject: 'body'
     }),
     new MiniCssExtractPlugin({

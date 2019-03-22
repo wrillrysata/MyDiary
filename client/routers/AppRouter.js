@@ -5,6 +5,7 @@ import UserDashboard from '../Components/UserDashboard';
 import HomePage from '../Components/HomePage';
 import Signin from '../Components/Signin';
 import Signup from '../Components/Signup';
+import EditComponent from '../Components/EditComponent';
 
 
 const AppRouter = () => (
@@ -14,7 +15,8 @@ const AppRouter = () => (
       <Route path="/signin" component={Signin} />
       <Route path="/signup" component={Signup} />
       <Route path="/dashboard" component={UserDashboard} />
-      <Route component={NotFoundPage} />
+      <Route path="/edit/:id" component={EditComponent} />
+       <Route component={NotFoundPage} />
     </Switch>
   </BrowserRouter>
 );

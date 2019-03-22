@@ -6,6 +6,7 @@ import { Link, withRouter } from 'react-router-dom';
 import EntryList from './EntryList';
 import { getNotes, saveNote } from '../actions/entryAction';
 import { logoutUser } from '../actions/authAction';
+import Navbar from './HeaderComponents/Navbar'
 /**
  * @classdesc Sign in users
  */
@@ -16,7 +17,8 @@ class UserDashboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      note: ''
+      note: '',
+      message:''
     };
     this.handleChange = this.handleChange.bind(this);
     this.addNote = this.addNote.bind(this);
@@ -29,6 +31,7 @@ class UserDashboard extends Component {
    */
   onLogoutClick(event) {
     event.preventDefault();
+   
     this.props.logoutUser(this.props.history);
   }
 
@@ -38,7 +41,15 @@ class UserDashboard extends Component {
    */
   addNote(event) {
     event.preventDefault();
-    this.props.saveNote(this.state.note);
+    const note  = this.state.note.trim();
+    console.log(note);
+    if(note !== ''){
+    this.props.saveNote(this.state.note, this.props.history);
+    }else{
+      this.setState({
+        message: 'You have not entered anything bro'
+      })
+    }
   }
 
   /**
@@ -58,7 +69,7 @@ class UserDashboard extends Component {
    */
   componentDidMount() {
     this.props.getNotes();
-    this.hamburger = document.getElementById('hamburger');
+   /**  this.hamburger = document.getElementById('hamburger');
     this.close = document.getElementById('close');
     this.menu = document.getElementById('Sidenav');
     this.close.addEventListener('click', () => {
@@ -66,7 +77,7 @@ class UserDashboard extends Component {
     });
     this.hamburger.addEventListener('click', () => {
       this.menu.style.width = '200px';
-    });
+    });**/
   }
 
 
@@ -78,40 +89,30 @@ class UserDashboard extends Component {
     return (
 
       <div>
-          <div id="Sidenav" className="sidenav">
-        <span id="close">&times;</span>
-        <Link to="/">Home</Link>
-        <Link to="/dashboard">All notes</Link>
-
-        <a href="userprofile.html">My profile</a>
-        <a href=""
-        onClick = {this.onLogoutClick } >
-        Logout
-        </a>
-      </div>
-      <nav className="navbar navbar-inverse">
-            <div className="container-fluid">
-              <div className="navbar-header">
-                <a className="navbar-brand" href="#">My Diary</a>
-                <a className="navbar-brand" id="hamburger">&#9776;</a>
-              </div>
-            </div>
-          </nav>
+       <Navbar />
           <div className="container fluid">
                 <div className="col-md-12">
                 <form onSubmit={ this.addNote } >
-                    <textarea placeholder="What's on your mind?" cols="30" rows="5" name="note" onChange={event => this.handleChange(event)} ></textarea>
-                 <br /><input type="submit" value="Add New" className="save" />
+                {this.state.message && <p className="note-text">{this.state.message}</p> }
+                <br></br>
+<textarea placeholder="What's on your mind?" name="note" cols="30" rows="5" onChange={this.handleChange}/>
+<br />
+<input type="submit" value="Add new" ></input>
+                  
+               
                 </form>
                 </div>
 
 
                  </div>
 
-                 <center><h3 className="clearfix">Recent Notes</h3></center>
+                 <center><h3 className="clearfix">My Notes</h3></center>
                  <hr />
                  <div className="container fluid">
-                 <EntryList entries={ this.props.entries } />
+                 {this.props.entries.entries.map(entry => (
+<EntryList entry={ entry } key={entry.id } />
+                 ))}
+
             </div>
 
       </div>

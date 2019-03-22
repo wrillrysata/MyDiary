@@ -21,7 +21,7 @@ class Signin extends Component {
       username: '',
       email: '',
       password: '',
-      usernameMessage: '',
+      userMessage: '',
       passwordMessage: ''
     };
     this.handleChange = this.handleChange.bind(this);
@@ -34,12 +34,16 @@ class Signin extends Component {
    * @returns {null} Returns null
    */
   componentWillReceiveProps(nextProps) {
+    this.setState({
+      userMessage: '',
+      passwordMessage: ''
+    });
     if (nextProps.auth.isAuthenticated) {
       this.props.history.push('/dashboard');
     }
     if (nextProps.errors) {
       this.setState({
-        usernameMessage: nextProps.errors.errors.message
+        userMessage: nextProps.errors.errors.message
       });
     }
   }
@@ -71,7 +75,7 @@ class Signin extends Component {
     if (this.state.username.length < 3) {
       hasError = true;
       this.setState({
-        usernameMessage: 'Username should be at least 3 charaacters long'
+        userMessage: 'Username should be at least 3 charaacters long'
       });
     }
 
@@ -104,7 +108,7 @@ class Signin extends Component {
   handleSubmit(event) {
     event.preventDefault();
     this.setState({
-      usernameMessage: '',
+      userMessage: '',
       passwordMessage: ''
     });
     const err = this.validate();
@@ -126,12 +130,11 @@ class Signin extends Component {
   render() {
     return (
       <div>
-        <Navbar />
         <div className="form col-md-12">
           <center>
             <form onSubmit={this.handleSubmit}>
-              {this.state.usernameMessage !== '' && (
-                <li className="error">{this.state.usernameMessage}</li>
+              {this.state.userMessage !== '' && (
+                <li className="error">{this.state.userMessage}</li>
               )}
               <TextFieldGroup
                 type="text"

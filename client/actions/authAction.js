@@ -49,5 +49,5 @@ export const logoutUser = history => (dispatch) => {
   dispatch(setCurrentUser({}));
   // Remove token from future requests
   setAuthToken(false);
-  history.push('/');
+  window.location.href = '/';
 };

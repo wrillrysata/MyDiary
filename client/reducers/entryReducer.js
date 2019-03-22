@@ -1,7 +1,8 @@
-import { LOAD_ENTRIES } from '../actions/types';
+import { LOAD_ENTRIES, FETCH_SINGLE_ENTRY } from '../actions/types';
 
 const initialState = {
-  entries: {}
+  entries: [],
+  entry:[]
 };
   /**
    * Fetch entries
@@ -12,15 +13,17 @@ const initialState = {
 export default function (state = initialState, action) {
   switch (action.type) {
     case LOAD_ENTRIES:
-      console.log(action.payload);
+      return {
+        ...state,
+        entries: action.payload
+      };
+    case FETCH_SINGLE_ENTRY:
+      return {
+        ...state,
+        entry: action.payload
+      };
 
-      break;
     default:
       return state;
-      // ...state,
-      //  entries: action.payload
-
-    // default:
-       // return state;
   }
 }

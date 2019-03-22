@@ -66,7 +66,6 @@ export default {
       });
   },
   addNew: (req, res) => {
-    console.log('adding');
     const {
       text
     } = req.body;

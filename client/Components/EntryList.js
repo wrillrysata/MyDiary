@@ -1,24 +1,63 @@
-import React, { PropTypes } from 'react';
-
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { getOne, deleteNote, editPost } from '../actions/entryAction';
 /**
    * Display entries
-   * @param {entries} state
+   * @class
    * @returns {null} Returns null
-   */
-export default function EntryList({ entries }) {
-  return (
-    <div className="well">
-    {
-        // console.log(entries)
-        // entries.map(entry => <p key={entry.id}>{entry.body}<a href="note.html">More</a>
-    // </p>
-}
-    <hr />
-    <span id="date">Wed June 5</span>
+   * */
+class EntryList extends Component {
+  /**
+ * @param {props} props Representing some data passed down
+ */
+  constructor(props) {
+    super(props);
+    this.state = {
+    };
+    this.handleEdit = this.handleEdit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
+  }
 
-   </div>
-  );
+  /**
+   * @function
+   * @param {event} event
+   * @returns { null} null
+   */
+  handleEdit(event) {
+    event.preventDefault();
+    this.props.editPost(this.props.entry.id, this.props.history);
+  }
+
+  /**
+   * @function
+   * @param {event} event
+   * @returns { null} null
+   */
+  handleDelete(event) {
+    event.preventDefault();
+    this.props.deleteNote(this.props.entry.id, this.props.history);
+  }
+
+  /**
+ *Renders web page
+ * @returns {Webpage} Displays the webpage
+ */
+  render() {
+    return (
+      <div className="well">
+        <p>{ this.props.entry.body } </p>
+        <br />
+        <button className="btn btn-primary" onClick ={ this.handleEdit }>Edit</button>
+        <button className="btn btn-primary" onClick ={ this.handleDelete }>Delete</button>
+      </div>
+    );
+  }
 }
-EntryList.propTypes = {
-  // entries: PropTypes.array.isRequired
-};
+const mapStateToProps = state => ({
+  auth: state.auth,
+  errors: state.errors,
+  entries: state.entries
+});
+export default connect(mapStateToProps,
+  { getOne,deleteNote, editPost })(withRouter(EntryList));

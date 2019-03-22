@@ -24,10 +24,10 @@ const TextFieldGroup = ({
 );
 TextFieldGroup.propTypes = {
   placeholder: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func,
+  value: PropTypes.string,
   title: PropTypes.string,
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string,
   type: PropTypes.string.isRequired
 };
 TextFieldGroup.defaultProps = {
