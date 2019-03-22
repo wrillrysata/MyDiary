@@ -6,7 +6,7 @@
   "scripts": {
     "client": "webpack-dev-server --mode development --open",
     "build": "babel server -d dist",
-    "server": "NODE_ENV=development && npm run build && nodemon dist/app.js",
+    "server": "NODE_ENV=development && npm run build && nodemon dist/server.js",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "test": "NODE_ENV=Test mocha server/test/*.js --exit  --require @babel/register --reporter spec",
     "start": "webpack-dev-server --history-api-fallback --inline --progress",
@@ -53,6 +53,7 @@
     "express": "^4.16.3",
     "istanbul": "^0.4.5",
     "jsonwebtoken": "^8.3.0",
+    "jwt-decode": "^2.2.0",
     "mocha": "^5.2.0",
     "path": "^0.12.7",
     "pg": "^7.4.3",

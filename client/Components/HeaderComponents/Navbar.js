@@ -1,31 +1,60 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link,withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { logoutUser } from '../../actions/authAction';
 
-const NavBar = () => { // Functional component i.e stateless
-        return(
-            <nav className="navbar navbar-inverse">
-    <div className="container-fluid">
-      <div className="navbar-header">
-        <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span className="icon-bar"></span>
-          <span className="icon-bar"></span>
-          <span className="icon-bar"></span>                        
-        </button>
-        <a className="navbar-brand" href="#">My Diary</a>
-      </div>
-      <div className="collapse navbar-collapse" id="myNavbar">
-        <ul className="nav navbar-nav">
-         <li> <Link to="/">Home</Link></li>
-            </ul>
-      
-        <ul className="nav navbar-nav navbar-right">
+class Navbar extends Component {
+  constructor(props){
+    super(props)
+    this.onLogoutClick = this.onLogoutClick.bind(this);
+  }
+  /**
+   * @param {event} event
+   * @returns { null} null
+   */
+  onLogoutClick(event) {
+    event.preventDefault();
+   this.props.logoutUser(this.props.history);
+  }
+  componentDidMount(){
+    this.hamburger = document.getElementById('hamburger');
+    this.close = document.getElementById('close');
+    this.menu = document.getElementById('Sidenav');
+    this.close.addEventListener('click', () => {
+      this.menu.style.width = 0;
+    });
+    this.hamburger.addEventListener('click', () => {
+      this.menu.style.width = '200px';
+    });
+  }
+  render() {
+    return (
 
-         
-        </ul>
+        <div>
+          <div id="Sidenav" className="sidenav">
+          <span id="close">&times;</span>
+          <Link to="/dashboard">Home</Link>
+  
+          <Link to="/profile">My profile</Link>
+          <a href=""
+          onClick = {this.onLogoutClick } >
+          Logout
+          </a>
         </div>
-        </div>
-        </nav>
-        )
-    }
+         <nav className="navbar navbar-inverse">
+         <div className="container-fluid">
+           <div className="navbar-header">
+             <Link to="/" className="navbar-brand">My Diary</Link>
+             <a className="navbar-brand" id="hamburger">&#9776;</a>
+           </div>
+         </div>
+       </nav>
+       </div>
+    )
+  }
+}
+const mapStateToProps = state => ({
+  auth: state.auth,
+});
 
-export default NavBar;
+export default connect(mapStateToProps,{logoutUser})(withRouter(Navbar));

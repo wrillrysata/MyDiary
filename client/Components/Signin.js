@@ -1,23 +1,27 @@
 // eslint-disable-next-line no-unused-vars
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import '@babel/polyfill';
 import { withRouter } from 'react-router-dom';
+import TextFieldGroup from './common/TextFieldGroup';
+import { loginUser } from '../actions/authAction';
 import Navbar from './HeaderComponents/Navbar';
 
 /**
  * @classdesc Sign in users
  */
 class Signin extends Component {
-/**
- * @param {props} props Representing some data passed down
- */
+  /**
+   * @param {props} props Representing some data passed down
+   */
   constructor(props) {
     super(props);
     this.state = {
       username: '',
       email: '',
       password: '',
-      usernameMessage: '',
+      userMessage: '',
       passwordMessage: ''
     };
     this.handleChange = this.handleChange.bind(this);
@@ -25,41 +29,71 @@ class Signin extends Component {
   }
 
   /**
- * Validates input
- * @returns {true/false} The result of validation
- */
-  validate() {
-    let isError = false;
+   * Lifecycle method to checks if a prop is present
+   * @param {nextProps} nextProps
+   * @returns {null} Returns null
+   */
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      userMessage: '',
+      passwordMessage: ''
+    });
+    if (nextProps.auth.isAuthenticated) {
+      this.props.history.push('/dashboard');
+    }
+    if (nextProps.errors) {
+      this.setState({
+        userMessage: nextProps.errors.errors.message
+      });
+    }
+  }
 
+  /**
+   * Lifecycle method - after component mounts
+   * @param {null} null
+   * @returns {null} Returns nothing
+   */
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push('/dashboard');
+    }
+  }
+
+  /**
+   * Validates input
+   * @returns {true/false} The result of validation
+   */
+  validate() {
+    let hasError = false;
 
     if (this.state.username === '') {
-      isError = true;
+      hasError = true;
       this.setState({
         usernameMessage: 'Username field cannot be empty'
       });
     }
     if (this.state.username.length < 3) {
-      isError = true;
+      hasError = true;
       this.setState({
-        usernameMessage: 'Username should be at least 3 charaacters long'
+        userMessage: 'Username should be at least 3 charaacters long'
       });
     }
 
     if (this.state.password === '') {
-      isError = true;
+      hasError = true;
       this.setState({
         passwordMessage: 'Password field cannot be empty'
       });
     }
 
-    return isError;
+    return hasError;
   }
 
   /**
- * Handle event change
- * @param {event} event
- * @returns {null} Returns nothing
- */
+   * Handle event change
+   * @param {event} event
+   * @returns {null} Returns nothing
+   */
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value
@@ -67,84 +101,59 @@ class Signin extends Component {
   }
 
   /**
- * Handle submit event
- * @param {event} event The first number.
- * @param {number} num2 The second number.
- * @returns {number} The sum of the two numbers.
- */
+   * Handle submit event
+   * @param {event} event The first number.
+   * @returns {null} Returns null.
+   */
   handleSubmit(event) {
     event.preventDefault();
     this.setState({
-      usernameMessage: '',
+      userMessage: '',
       passwordMessage: ''
     });
     const err = this.validate();
 
     if (!err) {
       const { username, password } = this.state;
-      console.log(this.state);
-      // use fetch api to login;
-      fetch('/api/v1/auth/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({
-          username,
-          password
-        })
-      })
-        .then((response) => {
-          if (response.status === 200) {
-            this.props.history.push('/dashboard');
-          } else if (response.status === 401) {
-            this.setState({
-              usernameMessage: 'Incorrect username or password'
-            });
-          } else if (response.status === 404) {
-            this.setState({
-              usernameMessage: 'We couldn\'t find a user with that record'
-            });
-          }
-        });
+      const userData = {
+        username,
+        password
+      };
+      this.props.loginUser(userData);
     }
   }
 
-
   /**
- * Render web page.
- * @returns {page} The webpage
- */
+   * Render web page.
+   * @returns {page} The webpage
+   */
   render() {
     return (
       <div>
-        <Navbar />
         <div className="form col-md-12">
           <center>
             <form onSubmit={this.handleSubmit}>
-              <ul className="error">
-
-
-              </ul>
-              {this.state.usernameMessage !== '' && (
-                  <li className="error">{this.state.usernameMessage}</li>
+              {this.state.userMessage !== '' && (
+                <li className="error">{this.state.userMessage}</li>
               )}
-              <input
+              <TextFieldGroup
                 type="text"
                 name="username"
+                value={this.state.username}
                 placeholder="Username"
                 pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{1,20}$"
                 title="Enter a valid username"
-                onChange={event => this.handleChange(event)}
+                onChange={this.handleChange}
               />
               {this.state.passwordMessage !== '' && (
-                  <li className="error">{this.state.passwordMessage}</li>
+                <li className="error">{this.state.passwordMessage}</li>
               )}
-              <input
+              <TextFieldGroup
                 type="password"
                 placeholder="Enter Password"
                 name="password"
-                onChange={event => this.handleChange(event)}
+                value={this.state.password}
+                onChange={this.handleChange}
               />
               <input type="submit" value="Sign in" />
             </form>
@@ -154,4 +163,16 @@ class Signin extends Component {
     );
   }
 }
-export default withRouter(Signin);
+Signin.propTypes = {
+  loginUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
+};
+const mapStateToProps = state => ({
+  auth: state.auth,
+  errors: state.errors
+});
+export default connect(
+  mapStateToProps,
+  { loginUser }
+)(withRouter(Signin));

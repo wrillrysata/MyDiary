@@ -17,7 +17,6 @@ export default {
         });
       });
   },
-
   getOne: (req, res) => {
     const { id } = req.params;
     const sql = 'SELECT * from entries WHERE id = $1';
@@ -79,7 +78,9 @@ export default {
             message: 'Could not add new entry, try again.',
           });
         }
-        return res.status(201).json({ message: 'Successfully added entry' });
+        return res.status(201).json({
+          message: 'Successfully added entry'
+        });
       });
   }
 };
