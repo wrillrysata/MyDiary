@@ -9,7 +9,7 @@ import { setCurrentUser, logoutUser } from './actions/authAction';
 
 const store = configureStore();
 const jsx = (
-    <Provider store={store} >
+    <Provider store={store}>
     <AppRouter />
     </Provider>
 );

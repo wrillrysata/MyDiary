@@ -1,11 +1,17 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import path from 'path';
 import cors from 'cors';
 import router from './routes/routes';
 import CreateTableSchema from './model/CreateTables';
 
-const PORT = (process.env.PORT || 3000);
+const PORT = (process.env.PORT || 2000);
 const app = express();
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'client/dist')));
+app.get('*', (req, res)=>{
+  res.sendFile(path.join(__dirname))
+})
 app.use(bodyParser.json());
 app.use(cors());
 app.use(bodyParser.urlencoded({
