@@ -64,7 +64,7 @@ module.exports = {
     port: 5000,
     historyApiFallback: true,
     proxy: {
-      '/api': 'http://localhost:2000'
+      '/api': process.env.PORT || 2000
     }
   }
 };
