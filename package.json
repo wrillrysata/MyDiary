@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "build": "babel server -d dist",
-    "start": "NODE_ENV=production && npm run build && nodemon dist/server.js",
+    "start": "NODE_ENV=production && npm install && npm run build && nodemon dist/server.js",
+    "dev":"NODE_ENV=development && npm run build && nodemon dist/server.js",
     "heroku-postbuild": "cd client && npm install && npm start"
   },
   "repository": {
