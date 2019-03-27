@@ -4,7 +4,7 @@
   "description": "My Diary is an online journal where users can pen down their thoughts and feelings.",
   "main": "app.js",
   "scripts": {
-    "client": "webpack-dev-server --mode production --open",
+    "client": "webpack-dev-server --mode production",
     "build": "babel index.js -d dist",
     "test": "NODE_ENV=Test mocha server/test/*.js --exit  --require @babel/register --reporter spec",
     "start": "npm run build && npm run client"

@@ -8,7 +8,7 @@ import CreateTableSchema from './model/CreateTables';
 const PORT = (process.env.PORT || 2000);
 const app = express();
 // Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'client/dist')));
+app.use(express.static(path.join(__dirname, 'dist')));
 app.get('*', (req, res)=>{
   res.sendFile(path.join(__dirname))
 })
