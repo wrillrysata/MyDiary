@@ -5,28 +5,29 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
+  devtool: 'eval-source-map',
   resolve: {
     extensions: ['.js', '.jsx']
   },
-  entry: path.join(__dirname, 'index.js'),
+  entry: path.join(__dirname, 'client/index'),
   output: {
-    path: path.join(__dirname, '/client/dist'),
-    filename: 'bundle.js',
-    publicPath: '/'
+    publicPath:'/',
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js'
   },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.js|jsx$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-
-        },
-      },
-      {
-        test: /\.jsx?/,
-        loader: 'babel-loader',
+        use: [
+          {
+            loader: 'babel-loader',
+            options:{
+              presets:["@babel/preset-react"]
+            }
+          }
+        ]
       },
       {
         test: /\.html$/,
@@ -51,7 +52,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: path.join(__dirname, 'public/index.html'),
+      template: path.join(__dirname, 'client/index.html'),
       inject: 'body'
     }),
     new MiniCssExtractPlugin({
