@@ -5,12 +5,11 @@
   "main": "app.js",
   "scripts": {
     "client": "webpack -p",
-    "build:client": "webpack --config ../webpack.config.js",
-    "dev": "NODE_ENV=development webpack --mode development",
+    "build:client": "webpack --config ../webpack.prod.js",
+    "start:dev": "NODE_ENV=development webpack-dev-server --config ../webpack.dev.js --open",
     "clean": "rm -rf node_modules",
     "reinstall": "npm run clean && npm install",
     "rebuild": "npm run clean && npm install && npm run build",
-    "start-dev": "npm run build && npm run dev",
     "test": "NODE_ENV=Test mocha server/test/*.js --exit  --require @babel/register --reporter spec",
     "start": "npm run build:client",
     "now-build": "npm run build:client"
