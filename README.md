@@ -34,38 +34,6 @@ GET /entries/`<entryId>`| Fetch the details of an entry
 PUT /entries/`<entryId>` | Modify a diary entry
 DELETE /entries/`<entryId>` | Delete a diary entry
 
-## How to set up:
-* Clone repo and cd into directory: 
-git clone https://github.com/Ijebusoma/journale.git
-
-
-###### install dependencies:
->  npm install
-
- ###### serve app:
-> npm start
-
-######  build for production:
-> npm run build
-
-
-## Testing
-###### Run test cases:
- > npm test
-
-
-UI Template : http://madeofco.de/My-Diary/template/dashboard.html,
-http://madeofco.de/My-Diary/template/index.html
-
-API Endpoint: https://ije-my-diary.herokuapp.com/api/v1/
-
-
-## ACKNOWLEDGEMENTS
- * [Andela Git Naming guide](https://github.com/andela/bestpractices/wiki/Git-naming-conventions-and-best-practices)
- 
- * [W3schools](w3schools.com)
- * [Scotch IO](scotch.io)
- * [mherman.org](mherman.org)
 
 
 
