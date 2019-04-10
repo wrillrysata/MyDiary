@@ -8,6 +8,7 @@
     "start": "NODE_ENV=production && npm install && npm run build && node dist/server.js",
     "clean": "rm -rf node_modules",
     "clear": "rm -rf dist",
+    "test": "NODE_ENV=Test mocha server/test/*.js --exit  --require @babel/register --reporter spec",
     "reinstall": "npm run clean && npm install",
     "rebuild": "npm run clean && npm install",
     "dev": "NODE_ENV=development && npm run build && nodemon dist/server.js",

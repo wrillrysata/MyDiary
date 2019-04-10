@@ -10,7 +10,6 @@
     "clean": "rm -rf node_modules",
     "reinstall": "npm run clean && npm install",
     "rebuild": "npm run clean && npm install && npm run build",
-    "test": "NODE_ENV=Test mocha server/test/*.js --exit  --require @babel/register --reporter spec",
     "start": "npm run build:client",
     "now-build": "npm run build:client"
   },
