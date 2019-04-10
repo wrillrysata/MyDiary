@@ -1,6 +1,7 @@
 
   @import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300");
   @import url("https://fonts.googleapis.com/css?family=Courgette");
+  @import url('https://fonts.googleapis.com/css?family=Bad+Script');
   
   body {
     font-family: "Open Sans Condensed", sans-serif;
@@ -131,12 +132,12 @@
     font-size: 25px;
     color: white ;
   }
-  
+  .navbar{
+    max-width: 100%;
+  }
   .note-text {
     color: black !important;
-    font-size: 20px;
-    position: relative;
-    top: 20px;
+    font-family: 'Bad Script', cursive;
   }
   
   .clearfix {
@@ -146,7 +147,7 @@
   .error{
     color:red;
     list-style-type: none;
-    font-size:10px;
+    font-size:20px;
   }
   
   .btn {
@@ -224,20 +225,6 @@
     height:80px;
     max-width:100%;
   }
-  /**
-  #save,
-  #update {
-    display: inline-block;
-    position: relative;
-    top: 95px;
-    right: 200px;
-    width: 100px;
-    height: 35px;
-    border-radius: 5px;
-    background-color: #00BFFF;
-    color: white;
-  }
-  **/
   #text-redirect{
     text-align: center;
     position: relative;
@@ -264,16 +251,6 @@
     border: 3px solid #cccccc;
     border-radius: 5px;
     font-size: 20px;
-    
-    /**
-    position: relative;
-    left:150px;
-    width: 600px;
-    height: 120px;
-    border: 3px solid #cccccc;
-    border-radius: 5px;
-    font-size: 20px;
-    **/
   }
   .icon-backward2, .icon-forward3{
     cursor: pointer;
@@ -345,7 +322,9 @@
     padding: 20px;
     background-color: white;
   }
-  
+  .fa-heart{
+    color:red;
+  }
   .info-block {
     width: 200px !important;
     background-color: #888;
@@ -373,7 +352,7 @@
     top:300px;
     font-size: 30px;
   }
-  footer {
+  .footer {
     position: relative;
     bottom: -25px;
     color:black;
@@ -382,6 +361,10 @@
   .footer-icon{
     position: relative;
     top:100px;
+  }
+  .footer-text{
+    font-size:15px;
+    font-family: 'Bad Script', cursive;
   }
   
   .grid {
