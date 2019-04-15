@@ -15,13 +15,8 @@ before_script:
   - psql -c 'create database mydiarytest;' -U postgres
 
 script:
-  - nyc --reporter=lcov npm run test
-
-after_script:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - npm run test
 
 cache:
   directories:
     - "node_modules"
-
-after_success: npm run coverage
