@@ -9,7 +9,7 @@
     "clean": "rm -rf node_modules",
     "test:server": "NODE_ENV=Test ./node_modules/.bin/mocha server/test/**/*.js --exit  --require @babel/register --reporter spec || true",
     "test": "npm run test:server && npm run coverage",
-    "coverage":"codecov --token=0dbca007-3f90-492f-9684-06177863753a",
+    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov --token=0dbca007-3f90-492f-9684-06177863753a",
     "reinstall": "npm run clean && npm install",
     "rebuild": "npm run clean && npm install",
     "dev": "NODE_ENV=development && npm run build && nodemon dist/server.js",
