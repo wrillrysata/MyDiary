@@ -7,9 +7,9 @@
     "build": "babel server -d dist",
     "start": "NODE_ENV=production && npm install && npm run build && node dist/server.js",
     "clean": "rm -rf node_modules",
-    "test:server": "NODE_ENV=Test nyc --all report --reporter=text mocha server/test/**/*.js --exit  --require @babel/register || true",
-    "test": "npm run test:server && npm run coverage",
-    "coverage": "nyc report --reporter=text-lcov > coverage.lcov && codecov --token=0dbca007-3f90-492f-9684-06177863753a",
+    "test:server": "NODE_ENV=Test mocha server/test/**/*.js --exit  --require @babel/register || true",
+    "test": "nyc report --reporter=lcov && npm run test:server && npm run coverage",
+    "coverage": "npx codecov --token=0dbca007-3f90-492f-9684-06177863753a",
     "reinstall": "npm run clean && npm install",
     "rebuild": "npm run clean && npm install",
     "dev": "NODE_ENV=development && npm run build && nodemon dist/server.js",
@@ -21,7 +21,10 @@
     ],
     "sourceMap": false,
     "instrument": false,
-    "all": true
+    "all": true,
+    "include": [
+      "server/**/*.js"
+    ]
   },
   "repository": {
     "type": "git",
