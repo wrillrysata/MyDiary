@@ -14,8 +14,8 @@ My Diary is a simple application where users can pen down their thoughts.
 * Users can update their entry
 * Users can delete their entry
 
-## Limitations
-* Users are unable to set and get notifications to create entries
+## Limitations/future development
+* Users are currently unable to set and get notifications to create entries
 
 ## Core Technologies 
 * Node Express
