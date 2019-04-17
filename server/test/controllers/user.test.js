@@ -9,7 +9,7 @@ chai.use(chaiHttp);
 describe("POST /api/v1/auth/signup", () => {
   it("Should return a json web token after successful signup", done => {
     const newUser = {
-      userName: 'snow',
+      userName: 'jonsnow',
       email: "snow@gmail.com",
       password: "123456",
     };
